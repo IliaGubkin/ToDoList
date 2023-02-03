@@ -1,28 +1,26 @@
 import { useState } from "react"
 import { v1 as uuidv1 } from "uuid"
 
-function AddToDo({ todo, settodo }: any) {
-    const [value, setValue] = useState("");
+export function AddToDo({ toDoList, setToDoList }: any) {
+    const [value, setInputValue] = useState("");
 
     function saveToDo() {
-        settodo([
-            ...todo,
+        setToDoList([
+            ...toDoList,
             {
                 id: uuidv1(),
                 title: value,
             }
         ])
-        setValue("");
+        setInputValue("");
     }
 
     return (
         <div>
             <div>
-                <button onClick={() => saveToDo()}>+</button>
-                <input placeholder="Новый пункт" value={value} onChange={(e) => setValue(e.target.value)} />
+                <button className="add-button" onClick={ saveToDo }>+</button>
+                <input className="input" placeholder="Новый пункт" value={value} onChange={(e) => setInputValue(e.target.value)}/>
             </div>
         </div>
     )
 }
-
-export default AddToDo

@@ -1,7 +1,3 @@
-import s from './Header.module.css';
-
-function Header() {
-    return <div className={s.root}>ToDoList</div>
+export function Header() {
+  return <header className="header">ToDoList</header>;
 }
-
-export default Header
