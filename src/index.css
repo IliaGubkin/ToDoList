@@ -85,3 +85,7 @@ html {
   color: rgb(114, 114, 114);
   font-size: 100px;
 }
+
+.slider__dog-breed {
+  text-align: center;
+}
