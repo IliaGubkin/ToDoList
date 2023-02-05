@@ -1,16 +1,24 @@
 import { useState } from "react";
-import { Header } from "./components/Header/Header";
-import { AddToDo } from "./components/AddToDo/AddToDo";
-import { ToDoList } from "./components/ToDoList/ToDoList";
+import { ToDo } from "./components/ToDo/ToDo";
+import { SelectScreen } from "./components/SelectScreen/SelectScreen";
+import { Slider } from "./components/Slider/Slider";
 
 function App() {
-  const [toDoList, setToDoList] = useState([]);
+  const [screen, setScreen] = useState("");
+
+ console.log(screen)
 
   return (
     <div className="App">
-      <Header />
-      <ToDoList toDolist={toDoList} setToDoList={setToDoList} />
-      <AddToDo toDoList={toDoList} setToDoList={setToDoList} />
+      {screen == "" ?
+        <div>
+          <SelectScreen setScreen={setScreen}/>
+        </div>
+        : (screen == "slider" ?
+          <Slider />
+          : <ToDo />
+        )
+      }
     </div>
   )
 }

@@ -46,3 +46,42 @@ html {
   background-color: transparent;
   color: rgb(114, 114, 114);
 }
+
+.choose-form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  border-color: rgba(233, 233, 233, 0.7);
+  background-color: transparent;
+  font-size: 40px;
+} 
+
+.choose-form__button {
+  border-color: rgba(233, 233, 233, 0.7);
+  background-color: rgb(63, 163, 63);
+  font-size: 40px;
+  border-radius:8px;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider__preview-img {
+  width: 75px;
+  opacity: 0.5;
+}
+
+.slider__main-img {
+  width: 300px;
+}
+
+.slider__next-button {
+  color: initial;
+  background-color: transparent;
+  border: none;
+  color: rgb(114, 114, 114);
+  font-size: 100px;
+}
