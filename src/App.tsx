@@ -1,26 +1,18 @@
-import { useState } from "react";
-import { ToDo } from "./components/ToDo/ToDo";
-import { SelectScreen } from "./components/SelectScreen/SelectScreen";
-import { Slider } from "./components/Slider/Slider";
+import { Routes, Route } from "react-router-dom";
+import { SliderPage } from "./pages/SliderPage";
+import { ToDoListPage } from "./pages/ToDoListPage";
+import { NavigationHeader } from "./components/layout/MainNavigation";
 
 function App() {
-  const [screen, setScreen] = useState("");
-
- console.log(screen)
-
   return (
     <div className="App">
-      {screen == "" ?
-        <div>
-          <SelectScreen setScreen={setScreen}/>
-        </div>
-        : (screen == "slider" ?
-          <Slider />
-          : <ToDo />
-        )
-      }
+      <NavigationHeader />
+      <Routes>
+        <Route path="/" element={<ToDoListPage />} />
+        <Route path="/slider" element={<SliderPage />} />
+      </Routes>
     </div>
-  )
+  );
 }
 
 export default App;

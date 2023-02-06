@@ -3,14 +3,24 @@ html {
   font-family: sans-serif;
 }
 
-.header {
+.navigation-header {
   height: 80px;
   font-size: 24px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
   color: rgb(114, 114, 114);
+}
+
+.navigation-header__link {
+  color: rgb(114, 114, 114);
+  text-decoration: none;
+}
+
+.navigation-header__link:hover {
+  color: blue;
+  text-decoration: none;
 }
 
 .input {
@@ -19,7 +29,7 @@ html {
   border-color: rgba(233, 233, 233, 0.7);
   border-radius: 3px;
   background-color: transparent;
-  padding: 2px 2px 2px 7px
+  padding: 2px 2px 2px 7px;
 }
 
 .delete-button {
@@ -50,17 +60,16 @@ html {
 .choose-form {
   display: flex;
   justify-content: space-evenly;
-  align-items: flex-end;
   border-color: rgba(233, 233, 233, 0.7);
   background-color: transparent;
   font-size: 40px;
-} 
+}
 
 .choose-form__button {
   border-color: rgba(233, 233, 233, 0.7);
   background-color: rgb(63, 163, 63);
   font-size: 40px;
-  border-radius:8px;
+  border-radius: 8px;
 }
 
 .slider {
