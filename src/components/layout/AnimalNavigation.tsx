@@ -3,7 +3,7 @@ import { SelectCats, SelectDogs } from "../SelectAnimal/SelectAnimal";
 export function AnimalNavigation() {
     return (
         <>
-            <div className="dogs">
+            <div className="animals">
                 <SelectDogs />
                 <SelectCats />
             </div>

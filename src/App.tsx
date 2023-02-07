@@ -1,49 +1,21 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import { AnimalNavigationPage } from "./pages/AnimalNavigationPage";
 import { ToDoListPage } from "./pages/ToDoListPage";
 import { NavigationHeader } from "./components/layout/MainNavigation";
-import { SliderDogPage } from "./pages/SliderDogPage";
-import { SliderCatPage } from "./pages/SliderCatPage";
-import { JumpingCatPage } from "./pages/JumpingCatPage";
-import { JumpingDogPage } from "./pages/JumpingDogPage";
-import { useState } from "react";
-import cats from "../src/components/Slider/cats.json"
-import dogs from "../src/components/Slider/dogs.json"
+import { JumpingAnimalPage } from "./pages/JumpingAnimalPage";
+import { Slider } from "./components/Slider/Slider";
+import dogs from "./components/Slider/dogs.json"
+import cats from "./components/Slider/cats.json"
 
-function App(props: any) {
-  let [animalIndex, setAnimalIndex] = useState(0);
-
-   
-  function previousAnimalImg() {
-    if(animalIndex > 0) {
-        animalIndex--;
-    } else {
-        animalIndex = .length - 1;
-    }
-
-    setAnimalIndex(animalIndex);
-}
-
-function nextAnimalImg() {
-    if(animalIndex < typeOfAnimal.length - 1) {
-        animalIndex++;
-    } else {
-        animalIndex = 0;
-    }
-
-    setAnimalIndex(animalIndex);
-}
-
+function App() {
   return (
     <div className="App">
       <NavigationHeader />
       <Routes>
         <Route path="/" element={<ToDoListPage />} />
         <Route path="/slider" element={<AnimalNavigationPage />} />
-        <Route path="/slider/dogs" element={<SliderDogPage />}/>
-        <Route path="/slider/cats" element={<SliderCatPage />}/>
-        <Route path="/slider/dogs/jump" element={<JumpingDogPage typeOfAnimal="" animalIndex="" />}/>
-        <Route path="/slider/cats/jump" element={<JumpingCatPage />}/>
+        <Route path="/slider/:animal" element={<Slider animalArray={[dogs, cats]}/>}/>
+        <Route path="/slider/:animal/:index" element={<JumpingAnimalPage animalArray={[dogs, cats]} />}/>
       </Routes>
     </div>
   );

@@ -99,7 +99,7 @@ html {
   text-align: center;
 }
 
-.dogs {
+.animals {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
