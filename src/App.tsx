@@ -1,7 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import { SliderPage } from "./pages/SliderPage";
+import { AnimalNavigationPage } from "./pages/AnimalNavigationPage";
 import { ToDoListPage } from "./pages/ToDoListPage";
 import { NavigationHeader } from "./components/layout/MainNavigation";
+import { SliderDogPage } from "./pages/SliderDogPage";
+import { SliderCatPage } from "./pages/SliderCatPage";
 
 function App() {
   return (
@@ -9,7 +11,9 @@ function App() {
       <NavigationHeader />
       <Routes>
         <Route path="/" element={<ToDoListPage />} />
-        <Route path="/slider" element={<SliderPage />} />
+        <Route path="/slider" element={<AnimalNavigationPage />} />
+        <Route path="/slider/dogs" element={<SliderDogPage />}/>
+        <Route path="/slider/cats" element={<SliderCatPage />}/>
       </Routes>
     </div>
   );

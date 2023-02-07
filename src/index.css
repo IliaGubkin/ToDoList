@@ -83,7 +83,7 @@ html {
   opacity: 0.5;
 }
 
-.slider__main-img {
+.slider-main__img {
   width: 300px;
 }
 
@@ -95,6 +95,46 @@ html {
   font-size: 100px;
 }
 
-.slider__dog-breed {
+.slider-main__animal-breed {
   text-align: center;
+}
+
+.dogs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.dogs-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  color: blue;
+  text-decoration: none;
+  width: 500px;
+}
+
+.cats-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  color: blue;
+  text-decoration: none;
+  width: 500px;
+}
+
+.choose-animal-text {
+  text-align: center;
+}
+
+.slider-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

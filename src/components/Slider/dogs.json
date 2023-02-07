@@ -1,6 +1,22 @@
 [
-    {"Корги": "https://adamant-corgi.ru/wp-content/uploads/2022/10/image-17-09-22-03-27-3.jpeg"},
-    {"Мастиф": "https://lapkins.ru/upload/uf/284/284c5f429482dfd931a90c9c7de3e601.jpg"},
-    {"Пудель": "https://dogjoy.ru/image/catalog/karusel/pudel.jpg"},
-    {"Бордер-колли": "https://blog.ferplast.com/wp-content/uploads/2021/02/cane-piu%CC%80-intelligente-razza.jpg"}
+    {
+        "breed": "Корги",
+        "img": "https://adamant-corgi.ru/wp-content/uploads/2022/10/image-17-09-22-03-27-3.jpeg",
+        "jumpHeight": 12
+    },
+    {   
+        "breed": "Мастиф",
+        "img": "https://lapkins.ru/upload/uf/284/284c5f429482dfd931a90c9c7de3e601.jpg",
+        "jumpHeight": 10
+    },
+    {
+        "breed": "Пудель",
+        "img": "https://dogjoy.ru/image/catalog/karusel/pudel.jpg",
+        "jumpHeight": 10
+    },
+    {
+        "breed": "Бордер-колли",
+        "img": "https://blog.ferplast.com/wp-content/uploads/2021/02/cane-piu%CC%80-intelligente-razza.jpg",
+        "jumpHeight": 10
+    }
 ]
