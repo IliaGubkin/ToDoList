@@ -138,3 +138,26 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+.jump-animal {
+  bottom: 0;
+  width: 100px;
+
+}
+.jump {
+  bottom: 0px;
+  right: 50%;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  animation-name: jumping;
+  animation-duration: 4s;
+  animation-delay: 1s;
+}
+
+@keyframes jumping {
+  0%{ bottom: 0px}
+  50%{ bottom: 300px}
+  100%{ bottom: 0px}
+}
+
