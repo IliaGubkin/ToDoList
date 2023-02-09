@@ -1,0 +1,62 @@
+{
+    "dogs": {
+        "bone": {
+            "boneImg": "https://avatars.mds.yandex.net/i?id=fe9fe7728fcc2cdf2145964ce153e7c79e195429-6331485-images-thumbs&n=13",
+            "boneHeight": 30
+        },
+        "type": [
+            {
+                "breed": "Корги",
+                "img": "https://adamant-corgi.ru/wp-content/uploads/2022/10/image-17-09-22-03-27-3.jpeg",
+                "jumpHeight": 20
+            },
+            {
+                "breed": "Мастиф",
+                "img": "https://lapkins.ru/upload/uf/284/284c5f429482dfd931a90c9c7de3e601.jpg",
+                "jumpHeight": 5
+            },
+            {
+                "breed": "Пудель",
+                "img": "https://dogjoy.ru/image/catalog/karusel/pudel.jpg",
+                "jumpHeight": 30
+            },
+            {
+                "breed": "Бордер-колли",
+                "img": "https://blog.ferplast.com/wp-content/uploads/2021/02/cane-piu%CC%80-intelligente-razza.jpg",
+                "jumpHeight": 40
+            }
+        ]
+    },
+    "cats": {
+        "bone": {
+            "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg",
+            "boneHeight": 50
+        },
+        "type": [
+            {
+                "breed": "Мейн-кун",
+                "img": "https://zooset.ru/upload/thumbs/breed/default/mejjn-kun_59b93e.jpeg",
+                "jumpHeight": 30,
+                "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg"
+            },
+            {
+                "breed": "Британская короткошерстная",
+                "img": "https://old.bigenc.ru/media/2016/10/27/1235157499/4027.jpg.262x-.png",
+                "jumpHeight": 40,
+                "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg"
+            },
+            {
+                "breed": "Шотландская вислоухая",
+                "img": "https://lapkins.ru/upload/uf/657/65762fddc95a2d38039d1ec44a0733b1.jpg",
+                "jumpHeight": 55,
+                "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg"
+            },
+            {
+                "breed": "Абиссинская",
+                "img": "https://static.wikia.nocookie.net/7098b08f-7fc2-4fcd-9797-80fb321cfe76/scale-to-width/755",
+                "jumpHeight": 60,
+                "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg"
+            }
+        ]
+    }
+}

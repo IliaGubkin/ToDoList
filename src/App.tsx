@@ -4,7 +4,7 @@ import { ToDoListPage } from "./pages/ToDoListPage";
 import { NavigationHeader } from "./components/layout/MainNavigation";
 import { JumpingAnimalPage } from "./pages/JumpingAnimalPage";
 import { Slider } from "./components/Slider/Slider";
-import dogs from "./components/Slider/dogs.json"
+import animals from "./components/Slider/animals.json"
 import cats from "./components/Slider/cats.json"
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<ToDoListPage />} />
         <Route path="/slider" element={<AnimalNavigationPage />} />
-        <Route path="/slider/:animal" element={<Slider animalArray={[dogs, cats]}/>}/>
-        <Route path="/slider/:animal/:index" element={<JumpingAnimalPage animalArray={[dogs, cats]} />}/>
+        <Route path="/slider/:animal" element={<Slider animalArray={[animals, cats]}/>}/>
+        <Route path="/slider/:animal/:index" element={<JumpingAnimalPage animalArray={[animals, cats]} />}/>
       </Routes>
     </div>
   );
