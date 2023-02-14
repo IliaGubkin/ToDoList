@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { useState } from "react";
 import animals from "../Slider/animals.json";
 import { animalMoving } from "../Helpers";
-import { Bone } from "../Bone/Bone";
+import { Bone } from "./Bone";
 
 export function JumpingAnimal() {
     let { animal, index } = useParams();

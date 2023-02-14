@@ -4,7 +4,7 @@ export function ToDoList({ toDolist, setToDoList }: any) {
   let [edit, setEdit] = useState(null);
   let [value, setTitleValue] = useState("");
 
-  function editToDo(id: any, title: any) {
+  function editToDo(id: any, title: string) {
     setEdit(id);
     setTitleValue(title);
   }

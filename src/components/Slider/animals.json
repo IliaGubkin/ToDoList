@@ -6,24 +6,36 @@
         },
         "type": [
             {
+                "id": 1,
                 "breed": "Корги",
-                "img": "https://adamant-corgi.ru/wp-content/uploads/2022/10/image-17-09-22-03-27-3.jpeg",
-                "jumpHeight": 20
+                "name": "Буба",
+                "img": ["https://adamant-corgi.ru/wp-content/uploads/2022/10/image-17-09-22-03-27-3.jpeg", "https://sun9-51.userapi.com/impg/1lJm2I2KM7Bk2K2_qz79MJou_rBx5UpHXZBD_A/TMHtD6P22k4.jpg?size=908x1080&quality=96&sign=ab569c8c3a708b47ae2a905c2e85dd07&type=album", "https://dogjoy.ru/image/catalog/karusel_new/velsh-korgi.jpg"],
+                "jumpHeight": 20,
+                "color": "Оранжевый"
             },
             {
+                "id": 2,
                 "breed": "Мастиф",
-                "img": "https://lapkins.ru/upload/uf/284/284c5f429482dfd931a90c9c7de3e601.jpg",
-                "jumpHeight": 5
+                "name": "Лев",
+                "img": ["https://lapkins.ru/upload/uf/284/284c5f429482dfd931a90c9c7de3e601.jpg", "http://tibetandog.ru/images/IMG_9771.jpg", "https://images.prismic.io/doge/997ee4a2-d47b-4d20-a8fa-bb542256915d_tibetskii-mastif-28.jpg?auto=compress,format&rect=46,0,420,420&w=456&h=456"],
+                "jumpHeight": 5,
+                "color": "Коричневый"
             },
             {
+                "id": 3,
                 "breed": "Пудель",
-                "img": "https://dogjoy.ru/image/catalog/karusel/pudel.jpg",
-                "jumpHeight": 30
+                "name": "Лаки",
+                "img": ["https://petguru.ru/wp-content/uploads/2018/08/royal_poodle_5.jpg", "https://avatars.dzeninfra.ru/get-zen_doc/112297/pub_60cb64b28b47906235bdac1f_60cb64ffe89b867565fa72bd/scale_1200" ,"https://dogjoy.ru/image/catalog/karusel/pudel.jpg"],
+                "jumpHeight": 30,
+                "color": "Бежевый"
             },
             {
+                "id": 4,
                 "breed": "Бордер-колли",
-                "img": "https://blog.ferplast.com/wp-content/uploads/2021/02/cane-piu%CC%80-intelligente-razza.jpg",
-                "jumpHeight": 40
+                "name": "Бобик",
+                "img": ["https://blog.ferplast.com/wp-content/uploads/2021/02/cane-piu%CC%80-intelligente-razza.jpg", "https://img.freepik.com/premium-photo/border-collie-dog_191971-24984.jpg", "https://old.bigenc.ru/media/2016/10/27/1235158419/4020.jpg"],
+                "jumpHeight": 40,
+                "color": "Черный"
             }
         ]
     },
@@ -34,28 +46,36 @@
         },
         "type": [
             {
+                "id": 5,
                 "breed": "Мейн-кун",
-                "img": "https://zooset.ru/upload/thumbs/breed/default/mejjn-kun_59b93e.jpeg",
+                "name": "Барсик",
+                "img": ["https://zooset.ru/upload/thumbs/breed/default/mejjn-kun_59b93e.jpeg", "https://mirmainecoon.ru/wp-content/uploads/2017/05/13737000_498986926959083_64457484_n-e1494667011118.jpg", "https://cs13.pikabu.ru/post_img/big/2020/11/15/8/1605442627151674280.jpg"],
                 "jumpHeight": 30,
-                "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg"
+                "color": "Черно-серый"
             },
             {
+                "id": 6,
                 "breed": "Британская короткошерстная",
-                "img": "https://old.bigenc.ru/media/2016/10/27/1235157499/4027.jpg.262x-.png",
+                "name": "Лев",
+                "img": ["https://old.bigenc.ru/media/2016/10/27/1235157499/4027.jpg.262x-.png", "https://www.catstep.ru/upload/iblock/76b/76bb21df67230809c5d8909cc81f9930.jpg", "http://catfishes.ru/wp-content/uploads/2021/05/britkosh7.jpg"],
                 "jumpHeight": 40,
-                "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg"
+                "color": "Серый"
             },
             {
+                "id": 7,
                 "breed": "Шотландская вислоухая",
-                "img": "https://lapkins.ru/upload/uf/657/65762fddc95a2d38039d1ec44a0733b1.jpg",
+                "name": "Амур",
+                "img": ["https://lapkins.ru/upload/uf/657/65762fddc95a2d38039d1ec44a0733b1.jpg", "https://s6.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/shotlandskaya-visloukhaya-koshka-725-483-3.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKjsuDPN027v0IPLNoDnduInrWWowqXXojuw&usqp=CAU"],
                 "jumpHeight": 55,
-                "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg"
+                "color": "Бело-серый"
             },
             {
+                "id": 8,
                 "breed": "Абиссинская",
-                "img": "https://static.wikia.nocookie.net/7098b08f-7fc2-4fcd-9797-80fb321cfe76/scale-to-width/755",
+                "name": "Мурка",
+                "img": ["https://static.wikia.nocookie.net/7098b08f-7fc2-4fcd-9797-80fb321cfe76/scale-to-width/755", "https://catsafety.ru/wp-content/uploads/2021/08/s7BVZkPO8Co.jpg", "https://xage.ru/media/posts/2014/8/6/vsja-pravda-ob-abissinskih-koshkah.JPG"],
                 "jumpHeight": 60,
-                "boneImg": "https://png.pngtree.com/png-vector/20190702/ourlarge/pngtree-fish-skeleton-png-image_1536269.jpg"
+                "color": "Оранжевый"
             }
         ]
     }

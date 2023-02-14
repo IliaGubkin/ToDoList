@@ -1,4 +1,4 @@
-import { ToDo } from "../components/ToDo/ToDo";
+import { ToDo } from "../components/ToDos/ToDoItem";
 
 export function ToDoListPage() {
   return (

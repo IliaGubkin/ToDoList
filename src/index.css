@@ -2,6 +2,9 @@ html {
   background-color: rgb(250, 246, 215);
   font-family: sans-serif;
 }
+body {
+  margin: 0px
+}
 
 .navigation-header {
   height: 80px;
@@ -11,6 +14,9 @@ html {
   justify-content: space-evenly;
   align-items: center;
   color: rgb(114, 114, 114);
+  border-bottom: solid 1px rgb(126, 126, 126);
+  background-color: rgba(114, 114, 114, 0.2);
+  margin-bottom: 20px;
 }
 
 .navigation-header__link {
@@ -152,5 +158,46 @@ html {
   width: 100px;
 }
 
+.sort-header {
+  padding-bottom: 10px;
+  border-bottom: solid 1px black;
+}
 
+.sort-header__item-breed {
+  width: 60px;
+  margin-left: 20px;
+}
 
+.sort-header__item-jump {
+  width: 60px;
+  margin-left: 200px;
+}
+
+.catalog {
+  display: flex;
+}
+
+.catalog__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40px;
+}
+
+.catalog-item {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.catalog-item__title-breed {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.catalog-item__title-jump {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
