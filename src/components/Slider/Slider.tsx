@@ -3,10 +3,12 @@ import { AnimalImg } from "../AnimalImg/AnimalImg";
 import { PreviewButton } from "./PreviewButton";
 import { Link, useParams } from "react-router-dom";
 import { nextAnimalImg, previousAnimalImg } from "../Helpers";
-import axios from "axios"
+import axios from "axios";
+// import animalse from "../Slider/animals.json";
 
 export function Slider() {
-    const { animal } = useParams();
+    let { animal } = useParams();
+    const { id } = useParams();
     const [animalIndex, setAnimalIndex] = useState(0);
     const [animalImgIndex, setAnimalImgIndex] = useState(0);
     const [previewMode, SetPreviewMode] = useState(true);
@@ -22,12 +24,25 @@ export function Slider() {
 
     let nextAnimalImgIndex = animalImgIndex;
     let previousAnimalImgIndex = animalImgIndex - 1;
-    // @ts-ignore
+    
+    useEffect(() => {
+    if(Number(id) <= 4 && Number(id) >= 0) {
+        SetDetailedMode(true)
+        setAnimalIndex(Number(id) - 1)
+    } else if (Number(id) >= 4 && Number(id) <= 8) {
+        animal = "cats";
+        SetDetailedMode(true)
+        setAnimalIndex(Number(id) - 1)
+    }}, [])
+
+    if(animalArray[animalIndex]) {
+        // @ts-ignore
     nextAnimalImgIndex = (nextAnimalImgIndex < animalArray[animalIndex].img.length - 1) ? animalImgIndex + 1 : 0;
     // @ts-ignore
     previousAnimalImgIndex = (previousAnimalImgIndex >= 0) ? animalImgIndex - 1 : animalArray[animalIndex].img.length - 1;
+    }
     // @ts-ignore
-    console.log(animalImgIndex, animalArray[animalIndex].img[animalImgIndex])
+   
     useEffect(() => {
         axios.get('https://raw.githubusercontent.com/IliaGubkin/ToDoList/master/src/components/Slider/animals.json')
             .then(function (response) {

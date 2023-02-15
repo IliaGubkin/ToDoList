@@ -18,8 +18,8 @@ export function AddToDo({ toDoList, setToDoList }: any) {
     return (
         <div>
             <div>
-                <button className="add-button" onClick={ saveToDo }>+</button>
-                <input className="input" placeholder="Новый пункт" value={value} onChange={(e) => setInputValue(e.target.value)}/>
+                <button className="add-button" onClick={saveToDo}>+</button>
+                <input className="input" placeholder="Новый пункт" value={value} onChange={(e) => setInputValue(e.target.value)} />
             </div>
         </div>
     )

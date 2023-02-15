@@ -16,6 +16,7 @@ function App() {
         <Route path="/todolist" element={<ToDoListPage />} />
         <Route path="/slider" element={<SliderPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/catalog/:animal/:id" element={<Slider />}/>
         <Route path="/slider/:animal" element={<Slider />}/>
         <Route path="/slider/:animal/:index" element={<JumpingAnimalPage />}/>
       </Routes>

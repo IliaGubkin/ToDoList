@@ -36,3 +36,11 @@ export function previousAnimalImg(animalIndex: number, setAnimalIndex: any, anim
 export function nextAnimalImg(animalIndex: number, setAnimalIndex: any, animalArray: any) {
   animalIndex < animalArray.length - 1 ? setAnimalIndex(animalIndex + 1) : setAnimalIndex(0);
 }
+
+export function catsOrDogs(id: string) {
+  if (Number(id) <= 4 && Number(id) >= 0) {
+    return "dogs";
+  } else if (Number(id) > 4 && Number(id) <= 8) {
+    return "cats";
+  }
+}

@@ -173,7 +173,7 @@ body {
   margin-left: 200px;
 }
 
-.catalog {
+.catalog, .catalog-columns {
   display: flex;
 }
 
@@ -200,4 +200,21 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+.catalog-link {
+  display: flex;
+  flex-direction: column;
+  margin-top: 55px;
+  margin-left: 100px;
+}
+
+.catalog-link__img {
+  margin-bottom: 12px;
+}
+
+.todolist {
+display: flex;
+justify-content: space-between;
+margin: 40px;
 }

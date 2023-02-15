@@ -6,7 +6,7 @@ import { animalMoving } from "../Helpers";
 import { Bone } from "./Bone";
 
 export function JumpingAnimal() {
-    let { animal, index } = useParams();
+    let { animal, index, imgIndex } = useParams();
     // @ts-ignore
     const animalArray = animals[animal];
     const [animalRotate, setAnimalRotate] = useState("0");
@@ -22,7 +22,7 @@ export function JumpingAnimal() {
       <>
         <div className="jump" onClick={() => animalMoving(caught, jumpHeight, boneHeight, setBoneMove, setAnimalMove, setAnimalRotate)}>
           <div style={{ bottom: animalMove, transition: "2s", position: "absolute", right: "45%", transform: `rotate(${animalRotate})`}}>
-            <AnimalImg className="jump-animal" typeOfAnimal={animalArray["type"][Number(index)].img} />
+            <AnimalImg className="jump-animal" typeOfAnimal={animalArray["type"][Number(index)].img[0]} />
           </div>
         </div>
         <Bone boneMove={boneMove} animalArray={animalArray} />
