@@ -45,10 +45,10 @@ export function CatalogColumns({ setSortedAnimals, sortedAnimals }: {
     return (
         <div className="catalog">
             <div className="catalog-columns">
-                {arr.map((e: any) => <CatalogColumn sortedAnimals={sortedAnimals} setSortedAnimals={setSortedAnimals} animalFeature={e} key={uuidv1()} />)}
+                {arr.map((e: any) => <CatalogColumn sortedAnimals={sortedAnimals} setSortedAnimals={setSortedAnimals} animalFeature={e} key={uuidv1()}/>)}
             </div>
             <div className="catalog-link">
-                {sortedAnimals.map((e: any) => <Link to={`/catalog/${catsOrDogs(e.id)}/${catsOrDogs(e.id) === "cats" ? e.id - 4 : e.id}`}><img src="../img/icon-navigate.png" className="catalog-link__img"></img></Link>)}
+                {sortedAnimals.map((e: any) => <Link to={`/catalog/${catsOrDogs(e.id)}/${catsOrDogs(e.id) === "cats" ? e.id - 4 : e.id}`} key={uuidv1()}><img src="../img/icon-navigate.png" className="catalog-link__img"></img></Link>)}
             </div>
         </div>
     )

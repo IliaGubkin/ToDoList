@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { v1 as uuidv1 } from "uuid"
 
 export function NavigationHeader() {
   class Links {
@@ -13,7 +14,7 @@ export function NavigationHeader() {
 
   return (
       <nav className="navigation-header">
-        {header.map((elem) => <Link to={elem.path} className="navigation-header__link">{elem.title}</Link>)}
+        {header.map((elem) => <Link to={elem.path} className="navigation-header__link" key={uuidv1()}>{elem.title}</Link>)}
       </nav>
   );
 }
