@@ -6,26 +6,25 @@ import { animalMoving } from "../Helpers";
 import { Bone } from "./Bone";
 
 export function JumpingAnimal() {
-    let { animal, index, imgIndex } = useParams();
-    // @ts-ignore
-    const animalArray = animals[animal];
-    const [animalRotate, setAnimalRotate] = useState("0");
-    const jumpHeight: number = animalArray["type"][Number(index)].jumpHeight * 10
-    const boneHeight: number = animalArray["bone"].boneHeight * 10
-    const caught: boolean = jumpHeight >= boneHeight;
-  
-    const [animalMove, setAnimalMove] = useState("0px");
-    const [boneMove, setBoneMove] = useState(boneHeight + "px");
-  
+  let { animal, index } = useParams();
+  // @ts-ignore
+  const animalArray = animals[animal];
+  const [animalRotate, setAnimalRotate] = useState("0");
+  const jumpHeight: number = animalArray["type"][Number(index)].jumpHeight * 10
+  const boneHeight: number = animalArray["bone"].boneHeight * 10
+  const caught: boolean = jumpHeight >= boneHeight;
 
-    return (
-      <>
-        <div className="jump" onClick={() => animalMoving(caught, jumpHeight, boneHeight, setBoneMove, setAnimalMove, setAnimalRotate)}>
-          <div style={{ bottom: animalMove, transition: "2s", position: "absolute", right: "45%", transform: `rotate(${animalRotate})`}}>
-            <AnimalImg className="jump-animal" typeOfAnimal={animalArray["type"][Number(index)].img[0]} />
-          </div>
+  const [animalMove, setAnimalMove] = useState("0px");
+  const [boneMove, setBoneMove] = useState(boneHeight + "px");
+
+  return (
+    <>
+      <div className="jump" onClick={() => animalMoving(caught, jumpHeight, boneHeight, setBoneMove, setAnimalMove, setAnimalRotate)}>
+        <div style={{ bottom: animalMove, transition: "2s", position: "absolute", right: "45%", transform: `rotate(${animalRotate})` }}>
+          <AnimalImg className="jump-animal" typeOfAnimal={animalArray["type"][Number(index)].img[0]} />
         </div>
-        <Bone boneMove={boneMove} animalArray={animalArray} />
-      </>
-    )
+      </div>
+      <Bone boneMove={boneMove} animalArray={animalArray} />
+    </>
+  )
 }

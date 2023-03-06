@@ -6,6 +6,7 @@ import { JumpingAnimalPage } from "./pages/JumpingAnimalPage";
 import { Slider } from "./components/Slider/Slider";
 import { CatalogPage } from "./pages/CatalogPage";
 import { HomePage } from "./pages/HomePage";
+import { PigGamePage } from "./pages/PigGamePage";
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
         <Route path="/todolist" element={<ToDoListPage />} />
         <Route path="/slider" element={<SliderPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/catalog/:animal/:id" element={<Slider />}/>
-        <Route path="/slider/:animal" element={<Slider />}/>
-        <Route path="/slider/:animal/:index" element={<JumpingAnimalPage />}/>
+        <Route path="/game" element={<PigGamePage />} />
+        <Route path="/catalog/:animal/:id" element={<Slider />} />
+        <Route path="/slider/:animal" element={<Slider />} />
+        <Route path="/slider/:animal/:index" element={<JumpingAnimalPage />} />
       </Routes>
     </div>
   );

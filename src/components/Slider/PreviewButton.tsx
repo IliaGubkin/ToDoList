@@ -1,15 +1,16 @@
 import { useState } from "react"
+import { IPreviewButton } from "./Types"
 
-export function PreviewButton(props: any) {
+export function PreviewButton({previewMode, SetPreviewMode}: IPreviewButton) {
     let [previewButtonText, SetPreviewButtonText] = useState("Отключить превью")
 
     function deactivatePreviewMode() {
-        if (props.previewMode) {
-            props.SetPreviewMode(false)
+        if (previewMode) {
+            SetPreviewMode(false)
             SetPreviewButtonText("Включить превью")
  
         } else {
-            props.SetPreviewMode(true)
+            SetPreviewMode(true)
             SetPreviewButtonText("Отключить превью")
            
         }

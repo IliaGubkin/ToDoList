@@ -10,7 +10,7 @@ export function NavigationHeader() {
       this.title = title;
     }
   }
-  const header = [new Links("/", "Home"), new Links("/todolist", "ToDoList"), new Links("/slider", "Slider"), new Links("/catalog", "Catalog")];
+  const header = [new Links("/", "Home"), new Links("/todolist", "ToDoList"), new Links("/slider", "Slider"), new Links("/catalog", "Catalog"), new Links("/game", "PigGame")];
 
   return (
       <nav className="navigation-header">

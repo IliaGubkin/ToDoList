@@ -1,7 +1,9 @@
-export function AnimalImg(props: any) {
+import { IAnimalImg } from "./Types";
+
+export function AnimalImg({className, typeOfAnimal}: IAnimalImg) {
     return (
         <>
-            <img className={props.className} src={props.typeOfAnimal} />
+            <img className={className} src={typeOfAnimal} />
         </>
     )
 }

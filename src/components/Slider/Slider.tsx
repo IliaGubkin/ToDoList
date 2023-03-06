@@ -24,25 +24,26 @@ export function Slider() {
 
     let nextAnimalImgIndex = animalImgIndex;
     let previousAnimalImgIndex = animalImgIndex - 1;
-    
-    useEffect(() => {
-    if(Number(id) <= 4 && Number(id) >= 0) {
-        SetDetailedMode(true)
-        setAnimalIndex(Number(id) - 1)
-    } else if (Number(id) >= 4 && Number(id) <= 8) {
-        animal = "cats";
-        SetDetailedMode(true)
-        setAnimalIndex(Number(id) - 1)
-    }}, [])
 
-    if(animalArray[animalIndex]) {
+    useEffect(() => {
+        if (Number(id) <= 4 && Number(id) >= 0) {
+            SetDetailedMode(true)
+            setAnimalIndex(Number(id) - 1)
+        } else if (Number(id) >= 4 && Number(id) <= 8) {
+            animal = "cats";
+            SetDetailedMode(true)
+            setAnimalIndex(Number(id) - 1)
+        }
+    }, [])
+
+    if (animalArray[animalIndex]) {
         // @ts-ignore
-    nextAnimalImgIndex = (nextAnimalImgIndex < animalArray[animalIndex].img.length - 1) ? animalImgIndex + 1 : 0;
-    // @ts-ignore
-    previousAnimalImgIndex = (previousAnimalImgIndex >= 0) ? animalImgIndex - 1 : animalArray[animalIndex].img.length - 1;
+        nextAnimalImgIndex = (nextAnimalImgIndex < animalArray[animalIndex].img.length - 1) ? animalImgIndex + 1 : 0;
+        // @ts-ignore
+        previousAnimalImgIndex = (previousAnimalImgIndex >= 0) ? animalImgIndex - 1 : animalArray[animalIndex].img.length - 1;
     }
     // @ts-ignore
-   
+
     useEffect(() => {
         axios.get('https://raw.githubusercontent.com/IliaGubkin/ToDoList/master/src/components/Slider/animals.json')
             .then(function (response) {

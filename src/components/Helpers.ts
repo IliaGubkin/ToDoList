@@ -1,4 +1,6 @@
-export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: number, setBoneMove: any, setAnimalMove: any, setAnimalRotate: any) {
+import { IAnimalItem } from "./JumpingAnimal/Types";
+
+export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: number, setBoneMove: (elem: string) => void, setAnimalMove: (elem: string) => void, setAnimalRotate: (elem: string) => void) {
   if (caught) {
     jumpHeight = boneHeight;
     setTimeout(() => {
@@ -29,15 +31,15 @@ export function play(source: string) {
   audio.play();
 }
 
-export function previousAnimalImg(animalIndex: number, setAnimalIndex: any, animalArray: any) {
-  animalIndex > 0 ? setAnimalIndex(animalIndex - 1) : setAnimalIndex(animalArray.length - 1);
+export function previousAnimalImg(animalIndex: number, setAnimalIndex: (elem: number) => void, animalArrayImg: string) {
+  animalIndex > 0 ? setAnimalIndex(animalIndex - 1) : setAnimalIndex(animalArrayImg.length - 1);
 }
 
-export function nextAnimalImg(animalIndex: number, setAnimalIndex: any, animalArray: any) {
-  animalIndex < animalArray.length - 1 ? setAnimalIndex(animalIndex + 1) : setAnimalIndex(0);
+export function nextAnimalImg(animalIndex: number, setAnimalIndex: (elem: number) => void, animalArrayImg: string) {
+  animalIndex < animalArrayImg.length - 1 ? setAnimalIndex(animalIndex + 1) : setAnimalIndex(0);
 }
 
-export function catsOrDogs(id: string) {
+export function catsOrDogs(id: number) {
   if (Number(id) <= 4 && Number(id) >= 0) {
     return "dogs";
   } else if (Number(id) > 4 && Number(id) <= 8) {

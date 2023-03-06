@@ -30,21 +30,32 @@ body {
 }
 
 .input {
-  margin-left: 7px;
   border-width: 1px;
   border-color: rgba(233, 233, 233, 0.7);
   border-radius: 3px;
   background-color: transparent;
   padding: 2px 2px 2px 7px;
+  font-size: 15px;
 }
 
 .delete-button {
-  margin-bottom: 7px;
+  margin-bottom: 31px;
   color: initial;
-  background-color: transparent;
+  background-color: rgb(0, 102, 255);
   border: none;
-  color: rgb(114, 114, 114);
-  font-size: 15px;
+  color: rgb(250, 246, 215);
+  font-size: 10px;
+  padding: 10px 20px 10px 20px;
+}
+
+.todoList__paginator-button {
+  margin-bottom: 51px;
+  color: initial;
+  background-color: rgb(0, 102, 255);
+  border: none;
+  color: rgb(250, 246, 215);
+  width: 30px;
+  margin-left: 10px;
 }
 
 .add-button {
@@ -59,8 +70,9 @@ body {
   color: initial;
   border-color: rgba(233, 233, 233, 0.7);
   border-radius: 3px;
-  background-color: transparent;
-  color: rgb(114, 114, 114);
+  background-color: rgb(0, 102, 255);;
+  color: rgb(250, 246, 215);
+  margin-left: 10px;
 }
 
 .choose-form {
@@ -217,4 +229,84 @@ body {
 display: flex;
 justify-content: space-between;
 margin: 40px;
+}
+
+.todolist-id {
+  margin-left: 10px;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-around;
+}
+
+.todo-id, .todo-title, .todo-close, .todo-author {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.todo-close {
+  margin-top: 85px;
+  margin-left: 50px;
+} 
+
+.todo-title__item, .todo-author__item {
+  margin-bottom: 5px;
+  height: 57px;
+}
+
+.todo-author__button {
+  height: 45px;
+  margin-bottom: 17px;
+  background: none;
+  border: none;
+  font-size: 40px;
+  vertical-align: top;
+}
+
+.table__complete {
+  vertical-align: top;
+}
+
+.toolbar {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+
+.toolbar img {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  margin: 20px;
+}
+
+.chat {
+  display: flex;
+  position: absolute;
+  margin: 10px;
+  right: 0;
+  bottom: 0;
+  flex-direction: column;;
+}
+
+.chat button {
+  background-color: #9147ff;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  margin-left: 5px;
+}
+
+.chat span {
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.chat__form {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  background-color: rgba(163, 163, 163, 0.8);
 }

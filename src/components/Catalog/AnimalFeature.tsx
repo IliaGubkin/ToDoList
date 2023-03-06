@@ -1,11 +1,16 @@
-import { v1 as uuidv1 } from "uuid"
+import { IAnimal, IAnimalFeature } from "./Types"
 
-export function AnimalFeature(props: any) {
-    return (props.arr.map((e: any) => {
-        return (
-            <div className="catalog" key={uuidv1()} style={{ marginTop: "15px" }}>
-                {e[props.animalFeature]}
-            </div>
-        )
-    }))
+export function AnimalFeature({ sortedAnimals, animalFeature }: IAnimalFeature) {
+    return (
+        <>
+            {
+                (sortedAnimals.map((e: IAnimal) => {
+                    return (
+                        <div className="catalog" key={e.id} style={{ marginTop: "15px" }}>
+                            {e[animalFeature]}
+                        </div>
+                    )
+                }))}
+        </>
+    )
 }
