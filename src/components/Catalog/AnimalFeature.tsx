@@ -4,10 +4,10 @@ export function AnimalFeature({ sortedAnimals, animalFeature }: IAnimalFeature) 
     return (
         <>
             {
-                (sortedAnimals.map((e: IAnimal) => {
+                (sortedAnimals.map((elem: IAnimal) => {
                     return (
-                        <div className="catalog" key={e.id} style={{ marginTop: "15px" }}>
-                            {e[animalFeature]}
+                        <div className="catalog" key={elem.id} style={{ marginTop: "15px" }}>
+                            {elem[animalFeature]}
                         </div>
                     )
                 }))}

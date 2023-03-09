@@ -10,7 +10,7 @@ import { IToDo, IToDoList } from "./Types";
 export function ToDoList({ toDoList, setToDoList, toDoListPaginator, setCompleted, completed }: IToDoList) {
   const [edit, setEdit] = useState(null);
   const [titleValue, setTitleValue] = useState("");
-
+  
   function editToDo(id: number, title: string) {
     setEdit(id);
     setTitleValue(title);

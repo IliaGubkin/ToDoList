@@ -1,6 +1,7 @@
+import { IAnimals } from "../Slider/Types"
+
 export interface IAnimal {
    id: number,
-   [animalFeature: string]: string,
    breed: string,
    name: string,
    img: string[],
@@ -14,17 +15,17 @@ interface ISortFeatures {
 }
 
 export interface IAnimalFeature {
-    sortedAnimals: IAnimal[], // как избежать дублирования? -оставить так (желательно) либо extends от одного, когда много
+    sortedAnimals: IAnimals, // как избежать дублирования? -оставить так (желательно) либо extends от одного, когда много
     animalFeature: string
 }
 
 export interface ICatalogColumns extends ISortFeatures {
-    setSortedAnimals?: (elem: IAnimal[]) => void,
-    sortedAnimals: IAnimal[]
+    setSortedAnimals?: (elem: IAnimals) => void,
+    sortedAnimals: IAnimals
 }
 
 export interface ICatalogColumn extends ISortFeatures{
-    sortedAnimals: IAnimal[],
+    sortedAnimals: IAnimals,
     animalFeature: string
 }
 

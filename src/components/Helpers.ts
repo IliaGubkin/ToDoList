@@ -1,6 +1,7 @@
-import { IAnimalItem } from "./JumpingAnimal/Types";
+import { IAnimals } from "./Slider/Types";
 
-export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: number, setBoneMove: (elem: string) => void, setAnimalMove: (elem: string) => void, setAnimalRotate: (elem: string) => void) {
+type TAnimalArrayImg = string | IAnimals;
+export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: number, setBoneMove: (elem: string) => void, setAnimalMove: (elem: string) => void, setAnimalRotate: () => void) {
   if (caught) {
     jumpHeight = boneHeight;
     setTimeout(() => {
@@ -9,20 +10,17 @@ export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: nu
     }, 4000)
   }
 
-  setAnimalRotate("15deg");
+  setAnimalRotate()
 
   setTimeout(() => {
     setAnimalMove(jumpHeight + "px");
-    setAnimalRotate("0");
   }, 1000)
 
   setTimeout(() => {
     setAnimalMove("0px");
-    setAnimalRotate("-15deg");
   }, 4000)
 
   setTimeout(() => {
-    setAnimalRotate("0");
   }, 5000)
 }
 
@@ -31,11 +29,17 @@ export function play(source: string) {
   audio.play();
 }
 
-export function previousAnimalImg(animalIndex: number, setAnimalIndex: (elem: number) => void, animalArrayImg: string) {
+interface IAnimalImg {
+  animalIndex: number,
+  setAnimalIndex: (elem: number) => void,
+  animalArrayImg: TAnimalArrayImg
+}
+
+export function previousAnimalImg({animalIndex, setAnimalIndex, animalArrayImg}: IAnimalImg) {
   animalIndex > 0 ? setAnimalIndex(animalIndex - 1) : setAnimalIndex(animalArrayImg.length - 1);
 }
 
-export function nextAnimalImg(animalIndex: number, setAnimalIndex: (elem: number) => void, animalArrayImg: string) {
+export function nextAnimalImg({animalIndex, setAnimalIndex, animalArrayImg}: IAnimalImg) {
   animalIndex < animalArrayImg.length - 1 ? setAnimalIndex(animalIndex + 1) : setAnimalIndex(0);
 }
 

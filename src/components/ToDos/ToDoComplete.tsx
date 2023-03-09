@@ -7,11 +7,10 @@ export function ToDoComplete({toDoList, setCompleted, completed}: IToDoComplete)
     toDoList.forEach((elem: IToDo) => {
       if (item.id == elem.id) {
         (elem.completed = completed);
-        console.log(completed)
       }
     });
   }
-
+//
   return (
     <div className="todo-author">
       <h3 style={{ marginBottom: "24px", marginTop: "24px" }}>Complete</h3>

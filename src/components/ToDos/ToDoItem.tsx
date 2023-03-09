@@ -3,6 +3,7 @@ import { AddToDo } from "./AddToDo";
 import { ToDoList } from "./ToDoList";
 import axios from "axios";
 import { IToDo } from "./Types";
+import { CompleteFilter } from "../CompleteFilter/CompleteFilter";
 
 export function ToDo() {
   useEffect(() => {
@@ -13,38 +14,46 @@ export function ToDo() {
         })
     }
   }, [])
-  
+
   const [toDoList, setToDoList] = useState(localStorage.todo ? JSON.parse(localStorage.todo) : []);
   const [pageNumber, setPageNumber] = useState(1);
   const paginatorPage = () => toDoList.filter((element: IToDo, index: number) => index >= pageNumber * 10 - 10 && index < pageNumber * 10);
   const [toDoListPaginator, settoDoListPaginator] = useState(paginatorPage());
-  const [completed, setCompleted] = useState(false);
+  const [completed, setCompleted] = useState(false);//Убрать
 
   localStorage.setItem("todo", JSON.stringify(toDoList));
 
   useEffect(() => {settoDoListPaginator(paginatorPage())}, [pageNumber, toDoList])
- 
+
   function setPaginator(index: number) {
     setPageNumber((index + 1))
   }
+  
+  const [completedTask, setCompletedTask] = useState(toDoList);
+
+  function editCompleted() {
+    let test = toDoList.filter((element: IToDo) => element.completed)
+    setCompletedTask(test)
+    console.log(test)
+  }
+
+  function editInCompleted() {
+    setCompletedTask(toDoList.filter((element: IToDo) => !element.completed))
+  }
+
+//Функция которая будет обновлять todolist на toDoList с противоположным completed
 
   return (
     <div className="todolist">
-      <div>
+      <div className="todolist__filter-and-add">
+        <CompleteFilter editCompleted={editCompleted} editInCompleted={editInCompleted}/>
         <AddToDo toDoList={toDoList} setToDoList={setToDoList} />
-        <ToDoList toDoList={toDoList} setToDoList={setToDoList} toDoListPaginator={toDoListPaginator} completed={completed} setCompleted={setCompleted}/>
-        <div>
-          {toDoList.filter((element: IToDo, index: number) => !(index % 10)).map((element: IToDo, index: number) =>
-            <button className="todoList__paginator-button" onClick={() => setPaginator(index)}>{index + 1}</button>)
-          }
-        </div>
       </div>
+      <ToDoList toDoList={completedTask} setToDoList={setToDoList} toDoListPaginator={toDoListPaginator} completed={completed} setCompleted={setCompleted} />
       <div>
-        <button onClick={() => {
-          localStorage.clear();
-          setToDoList([])
-          localStorage.setItem("toDoId", "0");
-        }}>Очистить localStorage</button>
+        {completedTask.filter((element: IToDo, index: number) => !(index % 10)).map((element: IToDo, index: number) =>
+          <button className="todoList__paginator-button" onClick={() => setPaginator(index)}>{index + 1}</button>)
+        }
       </div>
     </div>
   );

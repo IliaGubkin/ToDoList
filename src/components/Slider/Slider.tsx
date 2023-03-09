@@ -4,6 +4,9 @@ import { PreviewButton } from "./PreviewButton";
 import { Link, useParams } from "react-router-dom";
 import { nextAnimalImg, previousAnimalImg } from "../Helpers";
 import axios from "axios";
+import { IAnimals } from "./Types";
+import { useDispatch, useSelector } from "react-redux";
+import { setAnimals, setAnimalArray } from "../../store/jumpingAnimalReducer";
 // import animalse from "../Slider/animals.json";
 
 export function Slider() {
@@ -13,9 +16,14 @@ export function Slider() {
     const [animalImgIndex, setAnimalImgIndex] = useState(0);
     const [previewMode, SetPreviewMode] = useState(true);
     const [detailedMode, SetDetailedMode] = useState(false);
-    const [animals, setAnimals] = useState();
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state);
+    const animals = state.animals.animals;
+    const animalArray = state.animals.animalArray;
+
     // @ts-ignore
-    const [animalArray, setAnimalArray] = useState([]);
+    // const [animalArray, setAnimalArray] = useState<IAnimals>([]);
+    
     let nextAnimalIndex = animalIndex;
     let previousAnimalIndex = animalIndex - 1;
 
@@ -24,6 +32,10 @@ export function Slider() {
 
     let nextAnimalImgIndex = animalImgIndex;
     let previousAnimalImgIndex = animalImgIndex - 1;
+   
+    useEffect(() => {
+        console.log(state)
+    }, [state]);
 
     useEffect(() => {
         if (Number(id) <= 4 && Number(id) >= 0) {
@@ -47,7 +59,8 @@ export function Slider() {
     useEffect(() => {
         axios.get('https://raw.githubusercontent.com/IliaGubkin/ToDoList/master/src/components/Slider/animals.json')
             .then(function (response) {
-                setAnimals(response.data)
+    
+                dispatch(setAnimals(response.data))
             })
     }, [])
 
@@ -57,6 +70,7 @@ export function Slider() {
             setAnimalArray(animals[animal]["type"])
         }
     }, [animals]);
+
 
     return (
         <div className="slider" >
@@ -68,9 +82,10 @@ export function Slider() {
                     <button className="slider__next-button" onClick={() => {
                         detailedMode ?
                             // @ts-ignore
-                            previousAnimalImg(animalImgIndex, setAnimalImgIndex, animalArray[animalIndex].img) :
-                            previousAnimalImg(animalIndex, setAnimalIndex, animalArray)
-                    }}>{"<"}</button>
+                            previousAnimalImg({animalIndex: animalImgIndex, setAnimalIndex: setAnimalImgIndex, animalArrayImg: animalArray[animalIndex].img}) :
+                            previousAnimalImg({animalIndex, setAnimalIndex, animalArrayImg: animalArray})
+                    }}>{"<"}</button> 
+                    {/* // todo сделать отдельной компонентой */}
                 </>
                 <div className="slider-main">
                     {/* @ts-ignore */}
@@ -84,10 +99,11 @@ export function Slider() {
                     <button className="slider__next-button" onClick={() => {
                         detailedMode ?
                             // @ts-ignore
-                            nextAnimalImg(animalImgIndex, setAnimalImgIndex, animalArray[animalIndex].img) :
-                            nextAnimalImg(animalIndex, setAnimalIndex, animalArray)
+                            nextAnimalImg({animalIndex: animalImgIndex, setAnimalIndex: setAnimalImgIndex, animalArrayImg: animalArray[animalIndex].img}) :
+                            nextAnimalImg({animalIndex, setAnimalIndex, animalArrayImg: animalArray})
                     }
                     }>{">"}</button>
+                       {/* // todo сделать отдельной компонентой */}
                     {previewMode &&
                         // @ts-ignore
                         <AnimalImg className="slider__preview-img" typeOfAnimal={detailedMode ? animalArray[animalIndex].img[nextAnimalImgIndex] : animalArray[nextAnimalIndex].img[0]} />}

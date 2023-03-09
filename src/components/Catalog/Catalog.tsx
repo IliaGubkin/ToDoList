@@ -1,5 +1,6 @@
 import { useState } from "react"
 import animals from "../Slider/animals.json"; //todo импорт из git компоненты
+import { IAnimals } from "../Slider/Types";
 import { CatalogColumns } from "./CatalogColumns"
 import { IAnimal } from "./Types";
 
@@ -14,7 +15,7 @@ const arrowUp = <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmln
 let arrowIcon: JSX.Element;
 
 export function Catalog() {
-    const animalsValues: IAnimal[] = Object.values(animals).map(el => el.type).flat(); // называть el, i, item, elem, element
+    const animalsValues: IAnimals = Object.values(animals).map(el => el.type).flat(); // называть el, i, item, elem, element
     const [sorted, setSorted] = useState("id")
     const [sortedAnimals, setSortedAnimals] = useState(animalsValues);
     const [pressedButton, setPressedButton] = useState("");

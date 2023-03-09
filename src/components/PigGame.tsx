@@ -10,12 +10,10 @@ interface IItem {
 export function PigGame() {
     const [itemName, setItemName] = useState("")
 
-
-
     const items = [
         {
             name: "mac",
-            img: "https://i.insider.com/60e6088ac03e9c0018ab253e"
+            img: "https://github.com/IliaGubkin/ToDoList/blob/129d7f2fc21dd764cba5f89d93b781bdc8e448c8/20230303_124832.jpg?raw=true"
         },
         {
             name: "carrot",

@@ -1,4 +1,4 @@
-import { IAnimal } from "../Catalog/Types"
+import { IAnimals } from "../Slider/Types"
 
 interface IBoneKind {
     boneImg: string,
@@ -7,7 +7,7 @@ interface IBoneKind {
 
 export interface IAnimalItem {
     bone: IBoneKind,
-    type: IAnimal[]
+    type: IAnimals
 }
 
 export interface IBone {
