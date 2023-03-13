@@ -1,6 +1,8 @@
 import Spline from "@splinetool/react-spline"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {KeyboardEvent} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setTime, setChat, setChatValue, setItemName } from "../store/pigGameReducer";
 
 interface IItem {
     name: string,
@@ -8,7 +10,13 @@ interface IItem {
 }
 
 export function PigGame() {
-    const [itemName, setItemName] = useState("")
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state);
+    
+    const time = state.pigGame.time
+    const chat = state.pigGame.chat
+    const chatValue = state.pigGame.chatValue
+    const itemName = state.pigGame.itemName
 
     const items = [
         {
@@ -28,23 +36,21 @@ export function PigGame() {
     const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
         items.forEach((elem, index) => {
             if (String(index + 1) === event.key) {
-                setItemName(elem.name)
+                dispatch(setItemName(elem.name))
             }
         })
     };
 
-    const [time, setTime] = useState(0);
-    const [chatValue, setChatValue] = useState("");
-    const [chat, setChat] = useState([""]);
     const workingHours = time >= 9 && time <= 18;
 
     function sendMessage() {
         let chatList = [...chat, chatValue]
-        setChat(chatList)
-        setChatValue("")
+    
+        dispatch(setChat(chatList))
+        dispatch(setChatValue(""))
     }
 
-    useEffect(() => { setTimeout(() => { setTime(time == 24 ? 0 : time + 1) }, 1000) }, [time])
+    useEffect(() => { setTimeout(() => { dispatch(setTime(time == 24 ? 0 : time + 1)) }, 1000) }, [time])
 
     return (
         <div onKeyDown={handleKeyDown} tabIndex={0}>
@@ -60,7 +66,7 @@ export function PigGame() {
                     {chat.map(elem => <span>{elem}</span>)}
                 </div>
                 <div>
-                    <input value={chatValue} onChange={element => setChatValue(element.target.value)} placeholder="Отправить сообщение" />
+                    <input value={chatValue} onChange={element => dispatch(setChatValue(element.target.value))} placeholder="Отправить сообщение" />
                     <button onClick={sendMessage}>Чат</button>
                 </div>
             </div>

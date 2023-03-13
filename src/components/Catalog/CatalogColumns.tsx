@@ -4,6 +4,7 @@ import { CatalogColumn } from "./CatalogColumn";
 import { Link } from "react-router-dom";
 import { catsOrDogs } from "../Helpers";
 import { IAnimal, ICatalogColumns } from "./Types";
+import { useSelector } from "react-redux";
 
 
 const iconNavigate = <svg width="39" height="28" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,14 +13,16 @@ const iconNavigate = <svg width="39" height="28" viewBox="0 0 39 28" fill="none"
     <path d="M26.2916 5.6933C26.2916 7.49766 25.9235 9.08874 25.1496 10.7225C24.8595 11.335 24.3236 12.1063 24.3236 12.7998C24.3236 13.3126 24.4672 14.6167 23.5583 14.1118C22.5703 13.5629 20.7299 13.5651 19.6224 13.5651C18.2725 13.5651 17.0946 13.7838 15.7958 13.7838" stroke="#00FF19" stroke-width="3" stroke-linecap="round" />
 </svg>
 
-export function CatalogColumns({ arrowIcon, sortAnimals, sortedAnimals, pressedButton }: ICatalogColumns) {
+export function CatalogColumns({ arrowIcon, sortAnimals }: ICatalogColumns) {
+    const state = useSelector(state => state)
+    const sortedAnimals = state.catalog.sortedAnimals
     const arr = Object.keys(animals["dogs"]["type"][0]).filter((e) => e !== "img") // всегда с приведением типов сравнение 
     //todo поправить на flat массив всех животных, из него брать список id и отказаться от dogs или cats и переделать все под id сделать универсальную функцию, желательно slider/1
 
     return (
         <div className="catalog">
             <div className="catalog-columns">
-                {arr.map((e: string) => <CatalogColumn arrowIcon={arrowIcon} sortAnimals={sortAnimals} sortedAnimals={sortedAnimals} animalFeature={e} pressedButton={pressedButton} key={uuidv1()} />, { arrowIcon })}
+                {arr.map((e: string) => <CatalogColumn arrowIcon={arrowIcon} sortAnimals={sortAnimals} animalFeature={e} key={uuidv1()} />, { arrowIcon })}
             </div>
             <div className="catalog-link">
                 {sortedAnimals.map((e: IAnimal) => <Link to={`/catalog/${catsOrDogs(e.id)}/${catsOrDogs(e.id) === "cats" ? e.id - 4 : e.id}`} key={e.id}>{iconNavigate}</Link>)}

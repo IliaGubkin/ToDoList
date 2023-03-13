@@ -1,34 +1,38 @@
-import { useState } from "react"
-import { IAddToDo } from "./Types";
+import { setInputValue, setToDoId } from "../../store/addToDoReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { setToDoList } from "../../store/ToDoItemReducer";
 
-export function AddToDo({ toDoList, setToDoList }: IAddToDo) {
-    const [inputValue, setInputValue] = useState("");
-    const [toDoId, setToDoId] = useState(1);
+export function AddToDo() {
+    const state = useSelector(state => state);
+    const dispatch = useDispatch()
+    const inputValue = state.addToDo.inputValue
+    const toDoList = state.toDoItem.toDoList
+    const toDoId = state.addToDo.toDoId
 
     if (toDoId) {
         localStorage.setItem("toDoId", String(toDoId))
     }
 
     function saveToDo() {
-        setToDoId(Number(localStorage.toDoId) + 1);
-        setToDoList([
+        dispatch(setToDoId(Number(localStorage.toDoId) + 1));
+        dispatch(setToDoList([
             ...toDoList,
             {
                 id: localStorage.toDoId ? localStorage.toDoId : toDoId,
                 title: inputValue,
                 completed: false
             }
-        ])
-        setInputValue("");
+        ]))
+        dispatch(setInputValue(""));
     }
 
     return (
         <div className="add-todo">
-            <input className="input" placeholder="placeholder" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+            <input className="input" placeholder="placeholder" value={inputValue} onChange={(e) => dispatch(setInputValue(e.target.value))} />
             <div>
                 <button className="add-todo__clear" onClick={() => {
                     localStorage.clear(); //remove
-                    setToDoList([])
+                    dispatch(setToDoList([]))
                     localStorage.setItem("toDoId", "0");
                 }}>X</button>
             </div>

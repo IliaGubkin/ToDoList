@@ -1,6 +1,18 @@
 import { IToDo, IToDoTitle } from "./Types";
+import { useDispatch, useSelector } from "react-redux";
+import { setTitleValue, setEdit } from "../../store/toDoList";
 
-export function ToDoTitle({ toDoList, edit, setTitleValue, titleValue, saveToDo, editToDo }: IToDoTitle) {
+export function ToDoTitle({ toDoList, saveToDo }: IToDoTitle) {
+  const state = useSelector(state => state);
+  const dispatch = useDispatch()
+  const titleValue = state.toDoList.titleValue
+  const edit = state.toDoList.edit
+
+  function editToDo(id: number, title: string) {
+    dispatch(setEdit(id));
+    dispatch(setTitleValue(title));
+  }
+
   return (
     <div className="todo-title">
       <h3 style={{ marginBottom: "40px" }}>Title</h3>
@@ -10,7 +22,7 @@ export function ToDoTitle({ toDoList, edit, setTitleValue, titleValue, saveToDo,
             {edit == item.id ? (
               <span>
                 <span>
-                  <input className="input" onChange={(elem: React.FormEvent<HTMLInputElement>) => setTitleValue(elem.currentTarget.value)} value={titleValue} />
+                  <input className="input" onChange={(elem: React.FormEvent<HTMLInputElement>) => dispatch(setTitleValue(elem.currentTarget.value))} value={titleValue} />
                   <button className="save-button" onClick={() => saveToDo(item.id)}>save</button>
                 </span>
               </span>

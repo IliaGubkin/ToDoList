@@ -13,11 +13,9 @@ export interface IAddToDo {
 
 export interface IToDoComplete {
     toDoList: TSingleToDo,
-    setCompleted: (elem: boolean) => void,
-    completed: boolean
 }
 
-export interface IToDoList extends IToDoComplete {
+export interface IToDoList {
     toDoListPaginator: TSingleToDo,
     setToDoList: (elem: TSingleToDo) => void
 }
@@ -29,9 +27,5 @@ export interface ICloseButton {
 
 export interface IToDoTitle {
     toDoList: TSingleToDo,
-    edit: null, 
-    setTitleValue: (elem: string) => void, 
-    titleValue: string, 
     saveToDo: (elem: number) => void, 
-    editToDo: (id: number, title: string) => void
 }

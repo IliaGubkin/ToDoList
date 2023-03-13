@@ -1,18 +1,20 @@
-import { useState } from "react"
-import { IPreviewButton } from "./Types"
+import { setPreviewMode } from "../../store/sliderReducer"
+import { setPreviewButtonText } from "../../store/previewButtonReducer"
+import { useDispatch, useSelector } from "react-redux"
 
-export function PreviewButton({previewMode, SetPreviewMode}: IPreviewButton) {
-    let [previewButtonText, SetPreviewButtonText] = useState("Отключить превью")
+export function PreviewButton() {
+    const state = useSelector((state) => state);
+    const previewMode = state.slider.previewMode;
+    const previewButtonText = state.previewButton.previewButtonText;
+    const dispatch = useDispatch()
 
     function deactivatePreviewMode() {
         if (previewMode) {
-            SetPreviewMode(false)
-            SetPreviewButtonText("Включить превью")
- 
+            dispatch(setPreviewMode(false))
+            dispatch(setPreviewButtonText("Включить превью"))
         } else {
-            SetPreviewMode(true)
-            SetPreviewButtonText("Отключить превью")
-           
+            dispatch(setPreviewMode(true))
+            dispatch(setPreviewButtonText("Отключить превью"))
         }
     }
 
