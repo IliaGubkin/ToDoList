@@ -1,7 +1,8 @@
 const defaultState = {
     animalRotate: 0,
     animalMove: "0px",
-    boneMove: "0px"
+    boneMove: "0px",
+    caught: undefined
 }
 
 export function jumpingAnimalReducer(state = defaultState, action) {
@@ -12,20 +13,11 @@ export function jumpingAnimalReducer(state = defaultState, action) {
             return { ...state, animalMove: action.payload }
         case 'SET_BONE_MOVE':
             return { ...state, boneMove: action.payload }
+        case 'SET_CAUGHT':
+            return { ...state, caught: action.payload }
+        case 'SET_BONE_HEIGHT':
+            return { ...state, boneHeigth: action.payload }
         default:
             return state
     }
 }
-
-
-export const setAnimalRotate = (animalRotate) => (dispatch) => {
-    dispatch({ type: "SET_ROTATE", payload: animalRotate });
-};
-
-export const setAnimalMove = (animalMove) => (dispatch) => {
-    dispatch({ type: "SET_MOVE", payload: animalMove });
-};
-
-export const setBoneMove = (boneMove) => (dispatch) => {
-    dispatch({ type: "SET_BONE_MOVE", payload: boneMove });
-};

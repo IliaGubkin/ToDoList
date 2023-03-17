@@ -1,18 +1,16 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import { counterReducer } from "./counterReducer";
-import { jumpingAnimalReducer } from "./jumpingAnimalReducer";
-import { pigGameReducer } from "./pigGameReducer";
-import { sliderReducer } from "./sliderReducer";
-import { catalogReducer } from "./catalogReducer"; 
-import { previewButtonReducer } from "./previewButtonReducer";
-import { addToDoReducer } from "./addToDoReducer";
-import { toDoListReducer } from "./toDoList";
-import { toDoItemReducer } from "./ToDoItemReducer";
+import { jumpingAnimalReducer } from "./jumpingAnimal/jumpingAnimalReducer";
+import { pigGameReducer } from "./pigGame/pigGameReducer";
+import { sliderReducer } from "./slider/sliderReducer";
+import { catalogReducer } from "./catalog/catalogReducer"; 
+import { previewButtonReducer } from "./previewButton/previewButtonReducer";
+import { addToDoReducer } from "./addToDo/addToDoReducer";
+import { toDoListReducer } from "./toDoList/toDoListReducer";
+import { toDoItemReducer } from "./toDoItem/toDoItemReducer";
 
 const rootReducer = combineReducers({
-    counter: counterReducer,
     slider: sliderReducer,
     animals: jumpingAnimalReducer,
     pigGame: pigGameReducer,

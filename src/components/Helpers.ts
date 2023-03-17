@@ -1,5 +1,5 @@
 import { IAnimals } from "./Slider/Types";
-import { setAnimalMove, setBoneMove, setAnimalRotate } from "../store/jumpingAnimalReducer";
+import { setAnimalMove, setBoneMove, setAnimalRotate } from "../store/jumpingAnimal/jumpingAnimalActions";
 import { RootStore } from "../store/RootReducer";
 
 type TAnimalArrayImg = string | IAnimals;
@@ -11,7 +11,7 @@ export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: nu
       play("https://github.com/IliaGubkin/ToDoList/blob/320c8db32450ac0374b4f4d717b49a01998ea90f/src/newAudio/bark.mp3?raw=true");
     }, 4000)
   }
-
+  
   RootStore.dispatch(setAnimalRotate(15));
 
   setTimeout(() => {

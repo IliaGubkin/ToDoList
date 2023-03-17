@@ -7,7 +7,7 @@ import { Slider } from "./components/Slider/Slider";
 import { CatalogPage } from "./pages/CatalogPage";
 import { HomePage } from "./pages/HomePage";
 import { PigGamePage } from "./pages/PigGamePage";
-import { ReduxExamplePage } from "./pages/ReduxExamplePage";
+import { ExamplePage } from "./pages/ExamplePage";
 import { Provider } from "react-redux";
 import { RootStore } from "./store/RootReducer";
 
@@ -18,7 +18,7 @@ function App() {
       <NavigationHeader />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/redux" element={<ReduxExamplePage />} />
+        <Route path="/redux" element={<ExamplePage />} />
         <Route path="/todolist" element={<ToDoListPage />} />
         <Route path="/slider" element={<SliderPage />} />
         <Route path="/catalog" element={<CatalogPage />} />

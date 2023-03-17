@@ -1,6 +1,6 @@
 import { IToDo, IToDoTitle } from "./Types";
 import { useDispatch, useSelector } from "react-redux";
-import { setTitleValue, setEdit } from "../../store/toDoList";
+import { setTitleValue, setEdit } from "../../store/toDoList/toDoListActions";
 
 export function ToDoTitle({ toDoList, saveToDo }: IToDoTitle) {
   const state = useSelector(state => state);
@@ -15,7 +15,6 @@ export function ToDoTitle({ toDoList, saveToDo }: IToDoTitle) {
 
   return (
     <div className="todo-title">
-      <h3 style={{ marginBottom: "40px" }}>Title</h3>
       {
         toDoList.map((item: IToDo) => (
           <span key={item.id} className="todo-title__item" style={{ textDecoration: "none" }}>

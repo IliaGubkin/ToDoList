@@ -3,7 +3,7 @@ import animals from "../Slider/animals.json"; //todo импорт из git ко�
 import { IAnimals } from "../Slider/Types";
 import { CatalogColumns } from "./CatalogColumns"
 import { IAnimal } from "./Types";
-import { setSorted, setPressedButton, setSortedAnimals } from "../../store/catalogReducer";
+import { setSorted, setPressedButton, setSortedAnimals } from "../../store/catalog/catalogActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const arrowDown = <svg width="8" height="16" viewBox="0 0 8 16" fill="none" xmlns="http://www.w3.org/2000/svg">

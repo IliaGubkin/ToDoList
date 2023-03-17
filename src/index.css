@@ -52,7 +52,7 @@ body {
 }
 
 .delete-button {
-  margin-bottom: 31px;
+  margin-bottom: 10px;
   color: initial;
   background-color: rgb(0, 102, 255);
   border: none;
@@ -62,7 +62,7 @@ body {
 }
 
 .todoList__paginator-button {
-  margin-bottom: 51px;
+  margin-top: 51px;
   color: initial;
   background-color: rgb(0, 102, 255);
   border: none;
@@ -245,7 +245,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 40px;
 }
 
 .add-todo {
@@ -275,6 +274,7 @@ body {
 
 .todolist__filter-and-add {
   display: flex;
+  margin-bottom: 40px;
 }
 
 .todo {
@@ -288,31 +288,24 @@ body {
 .todo-author {
   display: flex;
   flex-direction: column;
-  margin-left: 30px;
 }
 
 .todo-close {
-  margin-top: 85px;
   margin-left: 50px;
 }
 
 .todo-title__item,
 .todo-author__item {
-  margin-bottom: 5px;
-  height: 57px;
+  height: 47px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .todo-author__button {
-  height: 45px;
-  margin-bottom: 17px;
-  background: none;
-  border: none;
-  font-size: 40px;
-  vertical-align: top;
-}
-
-.table__complete {
-  vertical-align: top;
+  margin-bottom: 18px;
+  font-size: 35px;
+  margin-left: 20px;
+  margin-left: 20px;
 }
 
 .toolbar {

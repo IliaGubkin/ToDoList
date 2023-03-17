@@ -17,10 +17,9 @@ export function ToDoComplete({toDoList}: IToDoComplete) {
 //
   return (
     <div className="todo-author">
-      <h3 style={{ marginBottom: "24px", marginTop: "24px" }}>Complete</h3>
       {
         toDoList.map((item: IToDo) => (
-          <button className="todo-author__button" onClick={() => toDoComplete(item)} key={item.id}>{item.completed ? "☑" : "☐"}</button>
+          <div className="todo-author__button" onClick={() => toDoComplete(item)} key={item.id}>{item.completed ? "☑" : "☐"}</div>
         ))
       }
     </div>

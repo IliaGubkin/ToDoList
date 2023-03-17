@@ -5,7 +5,7 @@ import animals from "../Slider/animals.json";
 import { animalMoving } from "../Helpers";
 import { Bone } from "./Bone";
 import { useDispatch, useSelector } from "react-redux";
-import { setAnimalMove, setBoneMove} from "../../store/jumpingAnimalReducer";
+import { setBoneMove, setCaught} from "../../store/jumpingAnimal/jumpingAnimalActions";
 
 
 export function JumpingAnimal() {
@@ -19,7 +19,8 @@ export function JumpingAnimal() {
   const animalArray = animals[animal];
   const jumpHeight: number = animalArray["type"][Number(index)].jumpHeight * 10
   const boneHeight: number = animalArray["bone"].boneHeight * 10
-  const caught: boolean = jumpHeight >= boneHeight;
+  const caught: boolean = state.animals.caught
+  useEffect(() => {setCaught(jumpHeight >= boneHeight)}, [])
 
   useEffect(() => dispatch(setBoneMove(boneHeight + "px")), [])
 

@@ -5,19 +5,22 @@ import { ToDoComplete } from "./ToDoComplete";
 import { ToDoId } from "./ToDoId";
 import { ToDoTitle } from "./ToDoTitle";
 import { IToDo, IToDoList } from "./Types";
-import { setTitleValue, setEdit } from "../../store/toDoList";
+import { setTitleValue, setEdit } from "../../store/toDoList/toDoListActions";
 import { useDispatch, useSelector } from "react-redux";
+import { setToDoListPaginator } from "../../store/toDoItem/toDoItemActions";
+import { setToDoList } from "../../store/toDoItem/toDoItemActions";
 
 
-export function ToDoList({ setToDoList, toDoListPaginator }: IToDoList) {
+export function ToDoList() {
   const state = useSelector(state => state);
   const dispatch = useDispatch()
   const titleValue = state.toDoList.titleValue
   const completedTask = state.toDoItem.completedTask
+  const toDoListPaginator = state.toDoItem.toDoListPaginator
 
   function deleteToDo(id: number) {
     let newTodo: IToDo[] = [...completedTask].filter((item: IToDo) => item.id != id);
-    setToDoList(newTodo);
+    dispatch(setToDoList(newTodo));
   }
 
   function saveToDo(id: number) {
@@ -27,31 +30,41 @@ export function ToDoList({ setToDoList, toDoListPaginator }: IToDoList) {
       }
       return item;
     });
-    setToDoList(newTodo);
+    console.log(completedTask)
+
+    dispatch(setToDoListPaginator(newTodo));
     dispatch(setEdit(null));
   }
 
   return (
-    <div >
+    <div className="table">
       <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Author</th>
+            <th>Complete</th>
+            <th>Title</th>
+          </tr>
+        </thead>
         <tbody>
-        <tr>
-          <th>
-            <ToDoId toDoList={toDoListPaginator} />
-          </th>
-          <th>
-            <ToDoAuthor toDoList={toDoListPaginator} />
-          </th>
-          <th className="table__complete">
-            <ToDoComplete toDoList={toDoListPaginator} />
-          </th>
-          <th>
-            <ToDoTitle toDoList={toDoListPaginator} saveToDo={saveToDo} />
-          </th>
-          <th>
-            <CloseButton toDoList={toDoListPaginator} deleteToDo={deleteToDo} />
-          </th>
-        </tr>
+          <tr>
+            <td>
+              <ToDoId toDoList={toDoListPaginator} />
+            </td>
+            <td>
+              <ToDoAuthor toDoList={toDoListPaginator} />
+            </td>
+            <td>
+              <ToDoComplete toDoList={toDoListPaginator} />
+            </td>
+            <td>
+              <ToDoTitle toDoList={toDoListPaginator} saveToDo={saveToDo} />
+            </td>
+            <td>
+              <CloseButton toDoList={toDoListPaginator} deleteToDo={deleteToDo} />
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

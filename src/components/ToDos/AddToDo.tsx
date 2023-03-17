@@ -1,6 +1,6 @@
-import { setInputValue, setToDoId } from "../../store/addToDoReducer";
+import { setInputValue, setToDoId } from "../../store/addToDo/addToDoActions";
 import { useDispatch, useSelector } from "react-redux";
-import { setToDoList } from "../../store/ToDoItemReducer";
+import { setToDoList } from "../../store/toDoItem/toDoItemActions";
 
 export function AddToDo() {
     const state = useSelector(state => state);
@@ -31,7 +31,7 @@ export function AddToDo() {
             <input className="input" placeholder="placeholder" value={inputValue} onChange={(e) => dispatch(setInputValue(e.target.value))} />
             <div>
                 <button className="add-todo__clear" onClick={() => {
-                    localStorage.clear(); //remove
+                    localStorage.removeItem("toDoId"); 
                     dispatch(setToDoList([]))
                     localStorage.setItem("toDoId", "0");
                 }}>X</button>
