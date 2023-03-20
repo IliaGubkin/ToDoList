@@ -1,6 +1,6 @@
 import { IToDo, IToDoTitle } from "./Types";
 import { useDispatch, useSelector } from "react-redux";
-import { setTitleValue, setEdit } from "../../store/toDoList/toDoListActions";
+import { setTitleValue, setEdit } from "../../store/toDoList/actions";
 
 export function ToDoTitle({ toDoList, saveToDo }: IToDoTitle) {
   const state = useSelector(state => state);

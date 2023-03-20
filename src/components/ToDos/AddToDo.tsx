@@ -1,6 +1,6 @@
-import { setInputValue, setToDoId } from "../../store/addToDo/addToDoActions";
+import { setInputValue, setToDoId } from "../../store/addToDo/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { setToDoList } from "../../store/toDoItem/toDoItemActions";
+import { setToDoList } from "../../store/toDoItem/actions";
 
 export function AddToDo() {
     const state = useSelector(state => state);

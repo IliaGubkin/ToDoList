@@ -5,10 +5,10 @@ import { ToDoComplete } from "./ToDoComplete";
 import { ToDoId } from "./ToDoId";
 import { ToDoTitle } from "./ToDoTitle";
 import { IToDo, IToDoList } from "./Types";
-import { setTitleValue, setEdit } from "../../store/toDoList/toDoListActions";
+import { setTitleValue, setEdit } from "../../store/toDoList/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { setToDoListPaginator } from "../../store/toDoItem/toDoItemActions";
-import { setToDoList } from "../../store/toDoItem/toDoItemActions";
+import { setToDoListPaginator } from "../../store/toDoItem/actions";
+import { setToDoList } from "../../store/toDoItem/actions";
 
 
 export function ToDoList() {

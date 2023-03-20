@@ -1,5 +1,5 @@
 import { IAnimals } from "./Slider/Types";
-import { setAnimalMove, setBoneMove, setAnimalRotate } from "../store/jumpingAnimal/jumpingAnimalActions";
+import { setAnimalMove, setBoneMove, setAnimalRotate } from "../store/jumpingAnimal/actions";
 import { RootStore } from "../store/RootReducer";
 
 type TAnimalArrayImg = string | IAnimals;

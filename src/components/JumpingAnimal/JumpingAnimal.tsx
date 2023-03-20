@@ -5,7 +5,7 @@ import animals from "../Slider/animals.json";
 import { animalMoving } from "../Helpers";
 import { Bone } from "./Bone";
 import { useDispatch, useSelector } from "react-redux";
-import { setBoneMove, setCaught} from "../../store/jumpingAnimal/jumpingAnimalActions";
+import { setBoneMove, setCaught} from "../../store/jumpingAnimal/actions";
 
 
 export function JumpingAnimal() {

@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { nextAnimalImg, previousAnimalImg } from "../Helpers";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setAnimals, setAnimalArray, setDetailedMode, setAnimalIndexAction, setAnimalImgIndexAction } from "../../store/slider/sliderActions";
+import { setAnimals, setAnimalArray, setDetailedMode, setAnimalIndexAction, setAnimalImgIndexAction } from "../../store/slider/actions";
 // import animalse from "../Slider/animals.json";
 
 export function Slider() {

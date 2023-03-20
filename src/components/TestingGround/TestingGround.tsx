@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { Context, IContext } from "../../pages/ExamplePage"
+import { Context } from "../../pages/ExamplePage"
 
 
 

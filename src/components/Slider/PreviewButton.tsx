@@ -1,5 +1,5 @@
-import { setPreviewMode } from "../../store/slider/sliderActions"
-import { setPreviewButtonText } from "../../store/previewButton/previewButtonActions"
+import { setPreviewMode } from "../../store/slider/actions"
+import { setPreviewButtonText } from "../../store/previewButton/actions"
 import { useDispatch, useSelector } from "react-redux"
 
 export function PreviewButton() {

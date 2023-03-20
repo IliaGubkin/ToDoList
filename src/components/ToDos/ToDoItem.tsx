@@ -4,7 +4,7 @@ import { ToDoList } from "./ToDoList";
 import axios from "axios";
 import { IToDo } from "./Types";
 import { CompleteFilter } from "../CompleteFilter/CompleteFilter";
-import { setToDoList, setPageNumber, setToDoListPaginator, setCompletedTask } from "../../store/toDoItem/toDoItemActions";
+import { setToDoList, setPageNumber, setToDoListPaginator, setCompletedTask } from "../../store/toDoItem/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 export function ToDo() {

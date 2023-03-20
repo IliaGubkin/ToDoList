@@ -10,6 +10,7 @@ import { PigGamePage } from "./pages/PigGamePage";
 import { ExamplePage } from "./pages/ExamplePage";
 import { Provider } from "react-redux";
 import { RootStore } from "./store/RootReducer";
+import { DesignSystem } from "./pages/DesignSystem";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/catalog/:animal/:id" element={<Slider />} />
         <Route path="/slider/:animal" element={<Slider />} />
         <Route path="/slider/:animal/:index" element={<JumpingAnimalPage />} />
+        <Route path="/design_system" element={<DesignSystem />} />
       </Routes>
     </div>
        </Provider>

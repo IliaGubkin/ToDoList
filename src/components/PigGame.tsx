@@ -2,7 +2,7 @@ import Spline from "@splinetool/react-spline"
 import { useEffect } from "react";
 import {KeyboardEvent} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setTime, setChat, setChatValue, setItemName } from "../store/pigGame/pigGameActions";
+import { setTime, setChat, setChatValue, setItemName } from "../store/pigGame/actions";
 
 interface IItem {
     name: string,

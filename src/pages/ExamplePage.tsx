@@ -6,7 +6,12 @@ export interface IContext {
     setContext: (elem: string) => void
 }
 
-export const Context = React.createContext<IContext | null>(null)
+const initialStateContext: IContext = {
+    context: "", 
+    setContext: (elem: string) => console.log()
+}
+
+export const Context = React.createContext<IContext>(initialStateContext);
 
 export function ExamplePage() {
     const [context, setContext] = useState("asd");
