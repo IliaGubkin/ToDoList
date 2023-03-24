@@ -11,12 +11,7 @@ interface IItem {
 
 export function PigGame() {
     const dispatch = useDispatch();
-    const state = useSelector((state) => state);
-    
-    const time = state.pigGame.time
-    const chat = state.pigGame.chat
-    const chatValue = state.pigGame.chatValue
-    const itemName = state.pigGame.itemName
+    const {time, chat, chatValue, itemName} = useSelector((state) => state).pigGame;
 
     const items = [
         {

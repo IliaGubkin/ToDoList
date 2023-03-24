@@ -3,9 +3,7 @@ import { setPreviewButtonText } from "../../store/previewButton/actions"
 import { useDispatch, useSelector } from "react-redux"
 
 export function PreviewButton() {
-    const state = useSelector((state) => state);
-    const previewMode = state.slider.previewMode;
-    const previewButtonText = state.previewButton.previewButtonText;
+    const {previewMode, previewButtonText} = useSelector((state) => state);
     const dispatch = useDispatch()
 
     function deactivatePreviewMode() {

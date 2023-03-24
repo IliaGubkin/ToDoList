@@ -19,9 +19,7 @@ let arrowIcon: JSX.Element;
 export function Catalog() {
     const animalsValues: IAnimals = Object.values(animals).map(el => el.type).flat(); // называть el, i, item, elem, element
     const dispatch = useDispatch();
-    const state = useSelector(state => state)
-    const sorted = state.catalog.sorted
-    const sortedAnimals = state.catalog.sortedAnimals
+    const {sorted, sortedAnimals} = useSelector(state => state).catalog
     useEffect(()=> dispatch(setSortedAnimals(animalsValues)), [])
 
     function sortAnimals(feature: string) { //todo вынести в отдельную компоненту

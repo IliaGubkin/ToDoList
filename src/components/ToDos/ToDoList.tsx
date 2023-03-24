@@ -18,21 +18,20 @@ export function ToDoList() {
   const completedTask = state.toDoItem.completedTask
   const toDoListPaginator = state.toDoItem.toDoListPaginator
 
-  function deleteToDo(id: number) {
-    let newTodo: IToDo[] = [...completedTask].filter((item: IToDo) => item.id != id);
+  const deleteToDo = (id: number) => {
+    const newTodo: IToDo[] = completedTask.filter((item: IToDo) => item.id != id);
     dispatch(setToDoList(newTodo));
   }
 
   function saveToDo(id: number) {
-    let newTodo = [...completedTask].map((item: IToDo) => {
+    const newTodo = completedTask.map((item: IToDo) => { // todo неправильно spread 
       if (item.id == id) {
         item.title = titleValue;
       }
       return item;
     });
-    console.log(completedTask)
 
-    dispatch(setToDoListPaginator(newTodo));
+    dispatch(setToDoList(newTodo));
     dispatch(setEdit(null));
   }
 

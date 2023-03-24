@@ -10,11 +10,19 @@ export function NavigationHeader() {
       this.title = title;
     }
   }
-  const header = [new Links("/", "Home"), new Links("/todolist", "ToDoList"), new Links("/slider", "Slider"), new Links("/catalog", "Catalog"), new Links("/piggame", "PigGame"),  new Links("/redux", "Example"),  new Links("/design_system", "DesignSystem")];
+  const header = [
+    new Links("/", "Home"),
+    new Links("/todolist", "ToDoList"),
+    new Links("/slider", "Slider"),
+    new Links("/catalog", "Catalog"),
+    new Links("/piggame", "PigGame"),
+    // new Links("/redux", "Example"),  
+    new Links("/design_system", "DesignSystem")
+  ];
 
   return (
-      <nav className="navigation-header">
-        {header.map((elem) => <Link to={elem.path} className="navigation-header__link" key={uuidv1()}>{elem.title}</Link>)}
-      </nav>
+    <nav className="navigation-header">
+      {header.map((elem) => <Link to={elem.path} className="navigation-header__link" key={uuidv1()}>{elem.title}</Link>)}
+    </nav>
   );
 }

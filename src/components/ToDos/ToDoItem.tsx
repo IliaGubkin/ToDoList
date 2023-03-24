@@ -9,11 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export function ToDo() {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  const toDoList = state.toDoItem.toDoList
-  const pageNumber = state.toDoItem.pageNumber
-  const toDoListPaginator = state.toDoItem.toDoListPaginator
-  const completedTask = state.toDoItem.completedTask
+  const {toDoList, pageNumber, toDoListPaginator, completedTask} = useSelector((state) => state).toDoItem;
 
   useEffect(() => {
     if (localStorage.todo.length == 2) {
@@ -33,8 +29,6 @@ export function ToDo() {
   useEffect(() => {  dispatch(setToDoListPaginator(paginatorPage())) }, [])
 
   useEffect(() => { dispatch(setCompletedTask(toDoList)) }, [toDoList])
-
-  useEffect(() => { console.log("completedTask", completedTask) }, [completedTask])
 
   function setPaginator(index: number) {
     dispatch(setPageNumber(index + 1));

@@ -2,7 +2,7 @@ const defaultState = {
     animalRotate: 0,
     animalMove: "0px",
     boneMove: "0px",
-    caught: undefined
+    caught: false
 }
 
 export function jumpingAnimalReducer(state = defaultState, action) {

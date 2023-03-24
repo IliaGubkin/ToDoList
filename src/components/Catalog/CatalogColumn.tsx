@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { AnimalFeature } from "./AnimalFeature";
 import { CatalogHeader } from "./CatalogHeader";
 import { ICatalogColumn } from "./Types";

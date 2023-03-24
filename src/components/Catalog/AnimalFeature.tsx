@@ -9,11 +9,16 @@ export function AnimalFeature({ animalFeature }: IAnimalFeature) {
             {
                 (sortedAnimals.map((elem: IAnimal) => {
                     return (
-                        <div className="catalog" key={elem.id} style={{ marginTop: "15px" }}>
-                            {elem[animalFeature]}
-                        </div>
+                        <table>
+                            <tr>
+                                <td key={elem.id}>
+                                    {elem[animalFeature]}
+                                </td>
+                            </tr>
+                        </table>
                     )
-                }))}
+                }))
+            }
         </>
     )
 }

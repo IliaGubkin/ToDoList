@@ -59,6 +59,7 @@ body {
   color: rgba(255, 228, 196, 1);
   font-size: 12px;
   padding: 11px 32px 12px 33px;
+  cursor: pointer;
 }
 
 .todoList__paginator-button {
@@ -69,6 +70,7 @@ body {
   color: rgb(250, 246, 215);
   width: 30px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .add-button {
@@ -78,7 +80,8 @@ body {
   color: rgba(255, 228, 196, 1);
   font-size: 12px;
   padding: 13px 32px 12px 33px;
-  margin-left: 33px
+  margin-left: 33px;
+  cursor: pointer;
 }
 
 .save-button {
@@ -88,6 +91,7 @@ body {
   background-color: rgb(0, 102, 255);
   color: rgb(250, 246, 215);
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .choose-form {
@@ -188,6 +192,7 @@ body {
 .sort-header {
   padding-bottom: 10px;
   border-bottom: solid 1px black;
+  cursor: pointer;
 }
 
 .sort-header__item-breed {
@@ -234,11 +239,12 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 55px;
-  margin-left: 100px;
+  margin-left: 40px;
 }
 
-.catalog-link__img {
-  margin-bottom: 12px;
+.catalog-link svg {
+  width: 34px;
+  cursor: pointer;
 }
 
 .todolist {
@@ -266,10 +272,14 @@ body {
   font-family: "Irish Grover";
   letter-spacing: 40%;
   line-height: 29px;
+  cursor: pointer;
 }
 
 .todolist-id {
   margin-left: 10px;
+  height: 47px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .todolist__filter-and-add {
@@ -301,11 +311,16 @@ body {
   margin-left: 20px;
 }
 
+.todo-title__item__text {
+  cursor: pointer;
+}
+
 .todo-author__button {
   margin-bottom: 18px;
   font-size: 35px;
   margin-left: 20px;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .toolbar {
@@ -378,6 +393,7 @@ body {
   letter-spacing: 3px;
   line-height: 15px;
   text-align: start;
+  cursor: pointer;
 }
 
 .incompleted-button {
@@ -394,6 +410,7 @@ body {
   letter-spacing: 3px;
   line-height: 15px;
   text-align: start;
+  cursor: pointer;
 }
 
 .completed-button:focus {

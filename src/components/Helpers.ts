@@ -3,7 +3,7 @@ import { setAnimalMove, setBoneMove, setAnimalRotate } from "../store/jumpingAni
 import { RootStore } from "../store/RootReducer";
 
 type TAnimalArrayImg = string | IAnimals;
-export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: number) {
+export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: number) {  
   if (caught) {
     jumpHeight = boneHeight;
     setTimeout(() => {
