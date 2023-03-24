@@ -48,14 +48,14 @@ type Importance = keyof Importances
 interface IMadButton {
     size: Size,
     importance: Importance,
-    icon: Icon
+    icon: Icon,
+    func: () => void
 }
 
 
-
-export function MadButton({ size, importance, icon }: IMadButton) {
+export function MadButton({ size, importance, icon, func }: IMadButton) {
     const navigate = useNavigate()
     return (
-        <button style={{ padding: Sizeasd[size], backgroundColor: Importancesad[importance] }} onClick={() => navigate("/slider")}>{Icons[icon]}</button>
+        <button style={{ padding: Sizeasd[size], backgroundColor: Importancesad[importance] }} onClick={() => }>{Icons[icon]}</button>
     )
 }
