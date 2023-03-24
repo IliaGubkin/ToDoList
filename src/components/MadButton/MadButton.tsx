@@ -54,8 +54,7 @@ interface IMadButton {
 
 
 export function MadButton({ size, importance, icon, func }: IMadButton) {
-    const navigate = useNavigate()
     return (
-        <button style={{ padding: Sizeasd[size], backgroundColor: Importancesad[importance] }} onClick={() => }>{Icons[icon]}</button>
+        <button style={{ padding: Sizeasd[size], backgroundColor: Importancesad[importance] }} onClick={func}>{Icons[icon]}</button>
     )
 }
