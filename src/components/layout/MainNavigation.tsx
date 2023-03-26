@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { v1 as uuidv1 } from "uuid"
+import { LogOut } from "../LogOut";
 
 export function NavigationHeader() {
   class Links {
@@ -23,6 +24,7 @@ export function NavigationHeader() {
   return (
     <nav className="navigation-header">
       {header.map((elem) => <Link to={elem.path} className="navigation-header__link" key={uuidv1()}>{elem.title}</Link>)}
+      <LogOut />
     </nav>
   );
 }

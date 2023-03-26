@@ -11,26 +11,27 @@ import { ExamplePage } from "./pages/ExamplePage";
 import { Provider } from "react-redux";
 import { RootStore } from "./store/RootReducer";
 import { DesignSystem } from "./pages/DesignSystem";
+import { LogInWrapper } from "./components/LogInWrapper";
 
 function App() {
   return (
     <Provider store={RootStore}>
-    <div className="App">
-      <NavigationHeader />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/redux" element={<ExamplePage />} />
-        <Route path="/todolist" element={<ToDoListPage />} />
-        <Route path="/slider" element={<SliderPage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/piggame" element={<PigGamePage />} />
-        <Route path="/catalog/:animal/:id" element={<Slider />} />
-        <Route path="/slider/:animal" element={<Slider />} />
-        <Route path="/slider/:animal/:index" element={<JumpingAnimalPage />} />
-        <Route path="/design_system" element={<DesignSystem />} />
-      </Routes>
-    </div>
-       </Provider>
+      <div className="App">
+        <NavigationHeader />
+        <Routes>
+          <Route path="/" element={<LogInWrapper><HomePage /></LogInWrapper>} />
+          <Route path="/redux" element={<LogInWrapper><ExamplePage /></LogInWrapper>} />
+          <Route path="/todolist" element={<LogInWrapper><ToDoListPage /></LogInWrapper>} />
+          <Route path="/slider" element={<LogInWrapper><SliderPage /></LogInWrapper>} />
+          <Route path="/catalog" element={<LogInWrapper><CatalogPage /></LogInWrapper>} />
+          <Route path="/piggame" element={<LogInWrapper><PigGamePage /></LogInWrapper>} />
+          <Route path="/catalog/:animal/:id" element={<LogInWrapper><Slider /></LogInWrapper>} />
+          <Route path="/slider/:animal" element={<LogInWrapper><Slider /></LogInWrapper>} />
+          <Route path="/slider/:animal/:index" element={<LogInWrapper><JumpingAnimalPage /></LogInWrapper>} />
+          <Route path="/design_system" element={<LogInWrapper><DesignSystem /></LogInWrapper>} />
+        </Routes>
+      </div>
+    </Provider>
   );
 }
 
