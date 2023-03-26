@@ -1,4 +1,4 @@
-import { Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MadButton } from "../components/MadButton/MadButton";
 // 
 export function DesignSystem() {
@@ -6,6 +6,7 @@ export function DesignSystem() {
     const handleClick = () => {
         window.location.replace('https://google.com/');
     };
+    
     return (
         <>
             <MadButton size="lg" importance={"primary"} icon={"arrowDown"} func={() => console.log("lul")} />

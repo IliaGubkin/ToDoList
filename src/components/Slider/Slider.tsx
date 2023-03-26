@@ -13,18 +13,17 @@ export function Slider() {
     let { animal } = useParams();
     const { id } = useParams();
     const dispatch = useDispatch();
-    const { 
-        animals, 
-        animalArray, 
-        detailedMode, 
-        animalIndex, 
-        animalImgIndex, 
-        previewMode 
+    const {
+        animals,
+        animalArray,
+        detailedMode,
+        animalIndex,
+        animalImgIndex,
+        previewMode
     } = useSelector((state) => state).slider;
-    
-    function setAnimalIndex(index: number) {(dispatch(setAnimalIndexAction(index)))}
-    function setAnimalImgIndex(index: number) {(dispatch(setAnimalImgIndexAction(index)))}
-   
+
+    function setAnimalIndex(index: number) { (dispatch(setAnimalIndexAction(index))) }
+    function setAnimalImgIndex(index: number) { (dispatch(setAnimalImgIndexAction(index))) }
 
     let nextAnimalIndex = animalIndex;
     let previousAnimalIndex = animalIndex - 1;
@@ -56,6 +55,9 @@ export function Slider() {
             .then(response => {
                 dispatch(setAnimals(response.data))
             })
+            .catch((error) =>
+              alert(error.message)
+            )
     }, [])
 
     useEffect(() => {
@@ -64,42 +66,41 @@ export function Slider() {
         }
     }, [animals]);
 
-
     return (
         <>
-        {/* <CatFacts /> */}
-        <div className="slider" >
-            {animalArray[previousAnimalIndex] ? <>
-                <>
-                    {previewMode &&
-                        <AnimalImg className="slider__preview-img" typeOfAnimal={detailedMode ? animalArray[animalIndex].img[previousAnimalImgIndex] : animalArray[previousAnimalIndex].img[0]} />}
-                    <button className="slider__next-button" onClick={() => {
-                        detailedMode ?
-                            previousAnimalImg({ animalIndex: animalImgIndex, setAnimalIndex: setAnimalImgIndex, animalArrayImg: animalArray[animalIndex].img }) :
-                            previousAnimalImg({ animalIndex, setAnimalIndex, animalArrayImg: animalArray })
-                    }}>{"<"}</button>
-                    {/* // todo сделать отдельной компонентой */}
-                </>
-                <div className="slider-main">
-                    <h2 className="slider-main__animal-breed">{animalArray[animalIndex]?.breed}</h2>
-                    <Link to={`/slider/${animal}/${animalIndex}`} className="navigation-header__link"><AnimalImg className="slider-main__img" typeOfAnimal={detailedMode ? animalArray[animalIndex].img[animalImgIndex] : animalArray[animalIndex].img[0]} /></Link>
-                    <PreviewButton />
-                    <button onClick={() => { dispatch(setDetailedMode(!detailedMode)) }}>{detailedMode ? "Вернутся ко всем породам" : "Перейти к животному"}</button>
-                </div>
-                <>
-                    <button className="slider__next-button" onClick={() => {
-                        detailedMode ?
-                            nextAnimalImg({ animalIndex: animalImgIndex, setAnimalIndex: setAnimalImgIndex, animalArrayImg: animalArray[animalIndex].img }) :
-                            nextAnimalImg({ animalIndex, setAnimalIndex, animalArrayImg: animalArray })
-                    }
-                    }>{">"}</button>
-                    {/* // todo сделать отдельной компонентой */}
-                    {previewMode &&
-                        <AnimalImg className="slider__preview-img" typeOfAnimal={detailedMode ? animalArray[animalIndex].img[nextAnimalImgIndex] : animalArray[nextAnimalIndex].img[0]} />}
-                </>
-            </> :
-                <h1 style={{ fontSize: "30px", textAlign: "center" }}>Загрузка...</h1>}
-        </div>
+            {/* <CatFacts /> */}
+            <div className="slider" >
+                {animalArray[previousAnimalIndex] ? <>
+                    <>
+                        {previewMode &&
+                            <AnimalImg className="slider__preview-img" typeOfAnimal={detailedMode ? animalArray[animalIndex].img[previousAnimalImgIndex] : animalArray[previousAnimalIndex].img[0]} />}
+                        <button className="slider__next-button" onClick={() => {
+                            detailedMode ?
+                                previousAnimalImg({ animalIndex: animalImgIndex, setAnimalIndex: setAnimalImgIndex, animalArrayImg: animalArray[animalIndex].img }) :
+                                previousAnimalImg({ animalIndex, setAnimalIndex, animalArrayImg: animalArray })
+                        }}>{"<"}</button>
+                        {/* // todo сделать отдельной компонентой */}
+                    </>
+                    <div className="slider-main">
+                        <h2 className="slider-main__animal-breed">{animalArray[animalIndex]?.breed}</h2>
+                        <Link to={`/slider/${animal}/${animalIndex}`} className="navigation-header__link"><AnimalImg className="slider-main__img" typeOfAnimal={detailedMode ? animalArray[animalIndex].img[animalImgIndex] : animalArray[animalIndex].img[0]} /></Link>
+                        <PreviewButton />
+                        <button onClick={() => { dispatch(setDetailedMode(!detailedMode)) }}>{detailedMode ? "Вернутся ко всем породам" : "Перейти к животному"}</button>
+                    </div>
+                    <>
+                        <button className="slider__next-button" onClick={() => {
+                            detailedMode ?
+                                nextAnimalImg({ animalIndex: animalImgIndex, setAnimalIndex: setAnimalImgIndex, animalArrayImg: animalArray[animalIndex].img }) :
+                                nextAnimalImg({ animalIndex, setAnimalIndex, animalArrayImg: animalArray })
+                        }
+                        }>{">"}</button>
+                        {/* // todo сделать отдельной компонентой */}
+                        {previewMode &&
+                            <AnimalImg className="slider__preview-img" typeOfAnimal={detailedMode ? animalArray[animalIndex].img[nextAnimalImgIndex] : animalArray[nextAnimalIndex].img[0]} />}
+                    </>
+                </> :
+                    <h1 style={{ fontSize: "30px", textAlign: "center" }}>Загрузка...</h1>}
+            </div>
         </>
     )
 }
