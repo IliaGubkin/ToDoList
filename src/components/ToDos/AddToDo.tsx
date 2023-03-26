@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setToDoList } from "../../store/toDoItem/actions";
 
 export function AddToDo() {
-    const state = useSelector(state => state);
+    const state = useSelector(state => state).add;
     const dispatch = useDispatch()
     const inputValue = state.addToDo.inputValue
     const toDoList = state.toDoItem.toDoList

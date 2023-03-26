@@ -6,7 +6,7 @@ import { nextAnimalImg, previousAnimalImg } from "../Helpers";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setAnimals, setAnimalArray, setDetailedMode, setAnimalIndexAction, setAnimalImgIndexAction } from "../../store/slider/actions";
-import { CatFacts } from "./CatFacts";
+// import { CatFacts } from "./CatFacts";
 // import animalse from "../Slider/animals.json";
 
 export function Slider() {
@@ -21,8 +21,9 @@ export function Slider() {
         animalImgIndex, 
         previewMode 
     } = useSelector((state) => state).slider;
-    const setAnimalIndex = (index: number) => (dispatch(setAnimalIndexAction(index)))
-    const setAnimalImgIndex = (index: number) => (dispatch(setAnimalImgIndexAction(index)))
+    
+    function setAnimalIndex(index: number) {(dispatch(setAnimalIndexAction(index)))}
+    function setAnimalImgIndex(index: number) {(dispatch(setAnimalImgIndexAction(index)))}
    
 
     let nextAnimalIndex = animalIndex;
@@ -52,7 +53,7 @@ export function Slider() {
 
     useEffect(() => {
         axios.get('https://raw.githubusercontent.com/IliaGubkin/ToDoList/master/src/components/Slider/animals.json')
-            .then(function (response) {
+            .then(response => {
                 dispatch(setAnimals(response.data))
             })
     }, [])

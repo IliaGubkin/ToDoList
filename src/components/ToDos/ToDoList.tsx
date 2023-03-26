@@ -18,7 +18,7 @@ export function ToDoList() {
   const completedTask = state.toDoItem.completedTask
   const toDoListPaginator = state.toDoItem.toDoListPaginator
 
-  const deleteToDo = (id: number) => {
+  function deleteToDo(id: number) {
     const newTodo: IToDo[] = completedTask.filter((item: IToDo) => item.id != id);
     dispatch(setToDoList(newTodo));
   }

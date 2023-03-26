@@ -16,15 +16,15 @@ export function CatFacts() {
         facts.then((result: string) => setFact(result.fact))
     }
 
-    const name = async () => {
+    async function asyncShowFact() {
         const respornse = await axios.get("https://catfact.ninja/fact")
         setTestAsync(respornse.data.fact)
     }
- 
+
     return (
         <>
             <button onClick={() => showFact()}>Показать факт</button>
-            <button onClick={() => name()}>Показать факт</button>
+            <button onClick={() => asyncShowFact()}>Показать факт</button>
             <h3>{fact}</h3>
             <h3>{testAsync}</h3>
         </>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import animals from "../Slider/animals.json"; //todo импорт из git компоненты
 import { IAnimals } from "../Slider/Types";
 import { CatalogColumns } from "./CatalogColumns"

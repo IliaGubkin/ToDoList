@@ -1,7 +1,11 @@
-export const setInputValue = (inputValue) => (dispatch) => {
-    dispatch({ type: "SET_INPUT_VALUE", payload: inputValue });
+export function setInputValue(inputValue) {
+    (dispatch) => {
+        dispatch({ type: "SET_INPUT_VALUE", payload: inputValue });
+    }
 };
 
-export const setToDoId = (toDoId) => (dispatch) => {
-    dispatch({ type: "SET_TODO_ID", payload: toDoId });
+export function setToDoId(toDoId) {
+    (dispatch) => {
+        dispatch({ type: "SET_TODO_ID", payload: toDoId });
+    }
 };
