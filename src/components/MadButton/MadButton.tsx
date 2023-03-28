@@ -12,13 +12,13 @@ interface IIcons {
     none: string
 }
 
-enum Sizeasd {
+enum MadButtonSize {
     lg = "50px 50px 50px 50px",
     md = "30px 30px 30px 30px",
     sm = "10px 10px 10px 10px"
 }
 
-type Size = keyof typeof Sizeasd;
+type Size = keyof typeof MadButtonSize;
 
 const Icons: IIcons = {
     arrowDown: arrowDown,
@@ -54,6 +54,6 @@ interface IMadButton {
 
 export function MadButton({ size, importance, icon, func }: IMadButton) {
     return (
-        <button style={{ padding: Sizeasd[size], backgroundColor: Importancesad[importance] }} onClick={func}>{Icons[icon]}</button>
+        <button style={{ padding: MadButtonSize[size], backgroundColor: Importancesad[importance] }} onClick={func}>{Icons[icon]}</button>
     )
 }

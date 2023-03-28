@@ -21,7 +21,7 @@ export function ExamplePage() {
                 <h1>{context}</h1>
                 <TestingGround />
             </Context.Provider>
-             {/* <TestingGround context={context} setContext={setContext} /> */}
+             <TestingGround context={context} setContext={setContext} />
         </>
     )
 }

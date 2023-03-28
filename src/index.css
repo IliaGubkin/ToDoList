@@ -439,3 +439,15 @@ body {
   border: 5px solid gray;
   margin-right: 30px;
 }
+
+.mad-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    line-height: 28px;  
+}
+
+.madinput-warning {
+  color: rgb(185, 0, 0)
+}
