@@ -21,7 +21,7 @@ export function JumpingAnimalPage() {
   
   return (
     <>
-      <div className="jump" onClick={() => animalMoving(caught, jumpHeight, boneHeight)}>
+      <div className="jump" onClick={() => animalMoving(caught, jumpHeight, boneHeight, animal)}>
         <div style={{ bottom: animalMove, transition: "2s", position: "absolute", right: "45%", transform: `rotate(${animalRotate}deg)` }}>
           <AnimalImg className="jump-animal" typeOfAnimal={animalArray["type"][Number(index)].img[0]} />
         </div>

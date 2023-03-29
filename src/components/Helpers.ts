@@ -3,12 +3,15 @@ import { setAnimalMove, setBoneMove, setAnimalRotate } from "../store/jumpingAni
 import { RootStore } from "../store/RootReducer";
 
 type TAnimalArrayImg = string | IAnimals;
-export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: number) {  
+
+export function animalMoving(caught: boolean, jumpHeight: number, boneHeight: number, animal: string | undefined) {  
+  const animalSound = animal == "dogs" ? "bark" : "meow";
+  console.log(animal)
   if (caught) {
     jumpHeight = boneHeight;
     setTimeout(() => {
       RootStore.dispatch(setBoneMove("0px"))
-      play("https://github.com/IliaGubkin/ToDoList/blob/320c8db32450ac0374b4f4d717b49a01998ea90f/src/newAudio/bark.mp3?raw=true");
+      play(`https://github.com/IliaGubkin/ToDoList/blob/master/public/${animalSound}.mp3?raw=true`);
     }, 4000)
   }
   
