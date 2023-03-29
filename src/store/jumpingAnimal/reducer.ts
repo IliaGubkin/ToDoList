@@ -1,11 +1,20 @@
-const defaultState = {
+import { IAction } from "../Types"
+
+interface IJumpingAnimal {
+    animalRotate: number,
+    animalMove: string,
+    boneMove: string,
+    caught: boolean
+}
+
+const defaultState: IJumpingAnimal = {
     animalRotate: 0,
     animalMove: "0px",
     boneMove: "0px",
     caught: false
 }
 
-export function jumpingAnimalReducer(state = defaultState, action) {
+export function jumpingAnimalReducer(state = defaultState, action: IAction) {
     switch (action.type) {
         case 'SET_ROTATE':
             return { ...state, animalRotate: action.payload }

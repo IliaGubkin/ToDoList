@@ -17,7 +17,7 @@ export function MadInput({ size, color, borderColor, func }: IMadInput) {
     };
     return (
         <div onKeyDown={handleKeyDown} tabIndex={0}>
-            <MadInputStyled ref={madRef} size={size} color={color} value={inputValue} onChange={(element: any) => setInputValue(element.target.value)} onClick={handleKeyDown} />
+            <MadInputStyled ref={madRef} size={size} color={color} value={inputValue} onChange={(element: React.FormEvent<HTMLInputElement>) => setInputValue(element.currentTarget.value)} onClick={handleKeyDown} />
             {inputValue.length >= 4 ? <p className="madinput-warning">Желательная длина менее 4 символов</p> : ""}
         </div>
     )

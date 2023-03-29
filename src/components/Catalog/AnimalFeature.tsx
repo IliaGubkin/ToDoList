@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux"
 import { IAnimal, IAnimalFeature } from "./Types"
 
-export function AnimalFeature({ animalFeature }: IAnimalFeature) {
+export function AnimalFeature({ animalFeature, catalogInput }: IAnimalFeature) {
     const state = useSelector(state => state)
     const sortedAnimals = state.catalog.sortedAnimals
+
+
     return (
         <>
             {

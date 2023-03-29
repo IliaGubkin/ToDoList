@@ -27,6 +27,9 @@ export function CatalogColumns({ arrowIcon, sortAnimals }: ICatalogColumns) {
             <div className="catalog-link">
                 {sortedAnimals.map((e: IAnimal) => <Link to={`/catalog/${catsOrDogs(e.id)}/${catsOrDogs(e.id) === "cats" ? e.id - 4 : e.id}`} key={e.id}>{iconNavigate}</Link>)}
             </div>
+            <>
+                
+            </>
         </div>
     )
 }

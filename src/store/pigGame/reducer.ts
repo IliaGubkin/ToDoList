@@ -1,11 +1,20 @@
-const defaultState = {
+import { IAction } from "../Types"
+
+interface IPigGame {
+  time: number,
+  chat: object,
+  chatValue: string,
+  itemName: string
+}
+
+const defaultState: IPigGame = {
   time: 0,
   chat: [""],
   chatValue: "",
   itemName: ""
 }
 
-export function pigGameReducer(state = defaultState, action) {
+export function pigGameReducer(state = defaultState, action: IAction) {
   switch (action.type) {
     case 'SET_TIME':
       return { ...state, time: action.payload }

@@ -1,9 +1,16 @@
-const defaultState = {
+import { IAction } from "../Types"
+
+interface IAddToDo {
+    inputValue: string,
+    toDoId: number
+}
+
+const defaultState: IAddToDo = {
     inputValue: "",
     toDoId: 1
 }
 
-export function addToDoReducer(state = defaultState, action) {
+export function addToDoReducer(state = defaultState, action: IAction ) {
     switch (action.type) {
         case 'SET_INPUT_VALUE':
             return { ...state, inputValue: action.payload }

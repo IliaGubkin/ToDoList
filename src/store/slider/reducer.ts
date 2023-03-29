@@ -1,4 +1,15 @@
-const defaultState = {
+import { IAction } from "../Types"
+
+interface ISlider {
+    animals: object,
+    animalArray: object,
+    detailedMode: boolean,
+    animalIndex: number,
+    animalImgIndex: number,
+    previewMode: boolean
+}
+
+const defaultState: ISlider = {
     animals: [],
     animalArray: [],
     detailedMode: false,
@@ -7,7 +18,7 @@ const defaultState = {
     previewMode: true
 }
 
-export function sliderReducer(state = defaultState, action) {
+export function sliderReducer(state = defaultState, action: IAction) {
     switch (action.type) {
         case 'SET_ANIMALS':
             return { ...state, animals: action.payload }
