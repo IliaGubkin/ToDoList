@@ -21,7 +21,7 @@ export function ToDo() {
   }, [])
 
   function paginatorPage() {
-    completedTask.filter((element: IToDo, index: number) => index >= pageNumber * 10 - 10 && index < pageNumber * 10)
+    return completedTask.filter((element: IToDo, index: number) => index >= pageNumber * 10 - 10 && index < pageNumber * 10)
   };
 
   localStorage.setItem("todo", JSON.stringify(toDoList));

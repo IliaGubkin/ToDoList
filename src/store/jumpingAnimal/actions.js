@@ -1,29 +1,29 @@
 export function setAnimalRotate(animalRotate) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_ROTATE", payload: animalRotate });
     }
 };
 
 export function setAnimalMove(animalMove) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_MOVE", payload: animalMove });
     }
 };
 
 export function setBoneMove(boneMove) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_BONE_MOVE", payload: boneMove });
     }
 };
 
 export function setCaught(caught) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_CAUGHT", payload: caught });
     }
 };
 
 export function setBoneHeight(boneHeigth) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_BONE_HEIGHT", payload: boneHeigth });
     }
 };

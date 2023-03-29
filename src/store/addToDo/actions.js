@@ -1,11 +1,11 @@
 export function setInputValue(inputValue) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_INPUT_VALUE", payload: inputValue });
     }
 };
 
 export function setToDoId(toDoId) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_TODO_ID", payload: toDoId });
     }
 };

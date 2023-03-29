@@ -1,23 +1,23 @@
 export function setTime(time) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_TIME", payload: time });
     }
 };
 
 export function setChat(chat) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_CHAT", payload: chat });
     }
 };
 
 export function setChatValue(chatValue) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_CHAT_VALUE", payload: chatValue });
     }
 };
 
 export function setItemName(itemName) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_ITEM_NAME", payload: itemName });
     }
 };

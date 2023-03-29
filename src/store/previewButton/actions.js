@@ -1,5 +1,5 @@
 export function setPreviewButtonText(previewButtonText) {
-    (dispatch) => {
+    return (dispatch) => {
         dispatch({ type: "SET_PREVIEW_BUTTON", payload: previewButtonText });
     }
 };
