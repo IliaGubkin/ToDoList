@@ -14,8 +14,7 @@ interface ISortFeatures {
 }
 
 export interface IAnimalFeature {
-    animalFeature: string,
-    catalogInput: string
+    animalFeature: string
 }
 
 export interface ICatalogColumns extends ISortFeatures {

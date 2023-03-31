@@ -24,6 +24,8 @@ export function catalogReducer(state = defaultState, action: IAction) {
             return { ...state, sortedAnimals: action.payload }
         case 'SET_CATALOG_INPUT':
             return { ...state, catalogInput: action.payload }
+        case 'SET_ANIMAL_FEATURES':
+            return { ...state, animalFeatures: action.payload }
         default:
             return state
     }

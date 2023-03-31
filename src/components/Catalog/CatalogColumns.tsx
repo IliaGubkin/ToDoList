@@ -1,10 +1,13 @@
 import animals from "../Slider/animals.json";
 import { v1 as uuidv1 } from "uuid"
 import { CatalogColumn } from "./CatalogColumn";
+import { setSortedAnimals, setCatalogInput, setAnimalFeatures } from "../../store/catalog/actions";
+import { KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import { catsOrDogs } from "../Helpers";
 import { IAnimal, ICatalogColumns } from "./Types";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 
 const iconNavigate = <svg width="39" height="28" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -14,22 +17,76 @@ const iconNavigate = <svg width="39" height="28" viewBox="0 0 39 28" fill="none"
 </svg>
 
 export function CatalogColumns({ arrowIcon, sortAnimals }: ICatalogColumns) {
-    const state = useSelector(state => state)
-    const sortedAnimals = state.catalog.sortedAnimals
     const arr = Object.keys(animals["dogs"]["type"][0]).filter((e) => e !== "img") // всегда с приведением типов сравнение 
     //todo поправить на flat массив всех животных, из него брать список id и отказаться от dogs или cats и переделать все под id сделать универсальную функцию, желательно slider/1
+    const { sortedAnimals, catalogInput, animalFeatures } = useSelector(state => state).catalog
+    const dispatch = useDispatch()
+
+    function handleInputKeyDown(event: KeyboardEvent<HTMLDivElement>, animalFeature: string) {
+        const blacklist = ["Крот", "Червяк", "Навозный жук"];
+
+        if ((event.key == "Enter" || "Tab") && !blacklist.includes(catalogInput)) {
+            // setEnteredFeature(animalFeature)
+            //@ts-ignore
+            dispatch(setAnimalFeatures({
+                id: catalogInput.id,
+                breed: catalogInput.breed,
+                name: catalogInput.name,
+                jumpHeight: catalogInput.jumpHeight,
+                color: catalogInput.color
+            }))
+        }
+    }
+
+    function handleChange(event, animalFeature) {
+        //@ts-ignore
+        dispatch(setCatalogInput({
+            id: "id" == animalFeature ? Number(event) : animalFeatures.id,
+            breed: "breed" == animalFeature ? event : animalFeatures.breed,
+            name: "name" == animalFeature ? event : animalFeatures.name,
+            jumpHeight: "jumpHeight" == animalFeature ? Number(event) : animalFeatures.jumpHeight,
+            color: "color" == animalFeature ? event : animalFeatures.color
+        }))
+    }
+
+
+    function addAnimalsRow() {
+        const blacklist = ["червь", "ж", "х"];
+        if (!blacklist.includes(catalogInput.breed)) {
+            dispatch(setSortedAnimals([...sortedAnimals, animalFeatures]))
+        }
+    }
+
+    //@ts-ignore
+    useEffect(() => dispatch(setAnimalFeatures({
+        id: 0,
+        breed: "",
+        name: "",
+        jumpHeight: 0,
+        color: ""
+    })), [])
+    //@ts-ignore
+    useEffect(() => dispatch(setCatalogInput({
+        id: 0,
+        breed: "",
+        name: "",
+        jumpHeight: 0,
+        color: ""
+    })), [])
+
 
     return (
-        <div className="catalog">
-            <div className="catalog-columns">
-                {arr.map((e: string) => <CatalogColumn arrowIcon={arrowIcon} sortAnimals={sortAnimals} animalFeature={e} key={uuidv1()} />, { arrowIcon })}
+        <>
+            <div className="catalog">
+                <div className="catalog-columns">
+                    {arr.map((e: string) => <CatalogColumn arrowIcon={arrowIcon} sortAnimals={sortAnimals} animalFeature={e} key={uuidv1()} />, { arrowIcon })}
+                </div>
+                <div className="catalog-link">
+                    {sortedAnimals.map((e: IAnimal) => <Link to={`/catalog/${catsOrDogs(e.id)}/${catsOrDogs(e.id) === "cats" ? e.id - 4 : e.id}`} key={e.id}>{iconNavigate}</Link>)}
+                </div>
             </div>
-            <div className="catalog-link">
-                {sortedAnimals.map((e: IAnimal) => <Link to={`/catalog/${catsOrDogs(e.id)}/${catsOrDogs(e.id) === "cats" ? e.id - 4 : e.id}`} key={e.id}>{iconNavigate}</Link>)}
-            </div>
-            <>
-                
-            </>
-        </div>
+            <div className="catalog-inputs">{arr.map((elem) => <input className="catalog-input" placeholder="Введите значение" value={catalogInput[elem]} onChange={(e) => handleChange(e.currentTarget.value, elem)} onKeyDown={(e) => handleInputKeyDown(e, elem)} />)}</div>
+            <button onClick={addAnimalsRow}>Save</button>
+        </>
     )
 }

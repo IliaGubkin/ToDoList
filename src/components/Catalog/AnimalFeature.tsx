@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { IAnimal, IAnimalFeature } from "./Types"
 
-export function AnimalFeature({ animalFeature, catalogInput }: IAnimalFeature) {
+export function AnimalFeature({ animalFeature }: IAnimalFeature) {
     const state = useSelector(state => state)
     const sortedAnimals = state.catalog.sortedAnimals
 
@@ -14,7 +14,7 @@ export function AnimalFeature({ animalFeature, catalogInput }: IAnimalFeature) {
                         <table>
                             <tr>
                                 <td key={elem.id}>
-                                    {elem[animalFeature]}
+                                    {String(elem[animalFeature]).length < 12 ? elem[animalFeature] : elem[animalFeature].slice(0,5) + "..." }
                                 </td>
                             </tr>
                         </table>

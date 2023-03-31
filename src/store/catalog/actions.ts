@@ -21,3 +21,9 @@ export function setCatalogInput(catalogInput: string) {
         dispatch({ type: "SET_CATALOG_INPUT", payload: catalogInput });
     }
 };
+
+export function setAnimalFeatures(animalFeatures: string) {
+    return (dispatch: (elem: {}) => void) => {
+        dispatch({ type: "SET_ANIMAL_FEATURES", payload: animalFeatures });
+    }
+};
