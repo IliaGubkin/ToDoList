@@ -1,6 +1,4 @@
 import animals from "../Slider/animals.json";
-import { v1 as uuidv1 } from "uuid"
-import { CatalogColumn } from "./CatalogColumn";
 import { setSortedAnimals, setCatalogInput, setAnimalFeatures } from "../../store/catalog/actions";
 import { KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
@@ -8,6 +6,9 @@ import { catsOrDogs } from "../Helpers";
 import { IAnimal, ICatalogColumns } from "./Types";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { TableRow } from "../TableRow";
+import { CatalogHeader } from "./CatalogHeader";
+import { AnimalFeature } from "./AnimalFeature";
 
 
 const iconNavigate = <svg width="39" height="28" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,15 +79,27 @@ export function CatalogColumns({ arrowIcon, sortAnimals }: ICatalogColumns) {
     return (
         <>
             <div className="catalog">
-                <div className="catalog-columns">
-                    {arr.map((e: string) => <CatalogColumn arrowIcon={arrowIcon} sortAnimals={sortAnimals} animalFeature={e} key={uuidv1()} />, { arrowIcon })}
-                </div>
+                <table>
+                    <thead className="catalog-thead">
+                        <tr>
+                            <TableRow data={(arr.map((elem: string) => <CatalogHeader sortAnimals={sortAnimals} headerTitle={elem} arrowIcon={arrowIcon} />))} />
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <TableRow data={(arr.map((elem: string) => <AnimalFeature animalFeature={elem} />))} />
+                        </tr>
+                    </tbody>
+                </table>
                 <div className="catalog-link">
-                    {sortedAnimals.map((e: IAnimal) => <Link to={`/catalog/${catsOrDogs(e.id)}/${catsOrDogs(e.id) === "cats" ? e.id - 4 : e.id}`} key={e.id}>{iconNavigate}</Link>)}
+                    {sortedAnimals.map((elem: IAnimal) => <Link to={`/catalog/${catsOrDogs(elem.id)}/${catsOrDogs(elem.id) === "cats" ? elem.id - 4 : elem.id}`} key={elem.id}>{iconNavigate}</Link>)}
                 </div>
             </div>
-            <div className="catalog-inputs">{arr.map((elem) => <input className="catalog-input" placeholder="Введите значение" value={catalogInput[elem]} onChange={(e) => handleChange(e.currentTarget.value, elem)} onKeyDown={(e) => handleInputKeyDown(e, elem)} />)}</div>
-            <button onClick={addAnimalsRow}>Save</button>
+            <div className="catalog-inputs">
+                {arr.map((elem) => <input className="catalog-input" placeholder="Введите значение" value={catalogInput[elem]} onChange={(e) => handleChange(e.currentTarget.value, elem)} onKeyDown={(e) => handleInputKeyDown(e, elem)} />)}
+                <button onClick={addAnimalsRow}>Save</button>
+            </div>
+
         </>
     )
 }

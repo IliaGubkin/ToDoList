@@ -11,13 +11,11 @@ export function AnimalFeature({ animalFeature }: IAnimalFeature) {
             {
                 (sortedAnimals.map((elem: IAnimal) => {
                     return (
-                        <table>
                             <tr>
                                 <td key={elem.id}>
-                                    {String(elem[animalFeature]).length < 12 ? elem[animalFeature] : elem[animalFeature].slice(0,5) + "..." }
+                                    {String(elem[animalFeature]).length < 12 ? elem[animalFeature] : elem[animalFeature].slice(0, 5) + "..."}
                                 </td>
                             </tr>
-                        </table>
                     )
                 }))
             }

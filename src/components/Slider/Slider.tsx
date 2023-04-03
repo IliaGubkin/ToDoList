@@ -85,7 +85,7 @@ export function Slider() {
                         <h2 className="slider-main__animal-breed">{animalArray[animalIndex]?.breed}</h2>
                         <Link to={`/slider/${animal}/${animalIndex}`} className="navigation-header__link"><AnimalImg className="slider-main__img" typeOfAnimal={detailedMode ? animalArray[animalIndex].img[animalImgIndex] : animalArray[animalIndex].img[0]} /></Link>
                         <PreviewButton />
-                        <button onClick={() => { dispatch(setDetailedMode(!detailedMode)) }}>{detailedMode ? "Вернутся ко всем породам" : "Перейти к животному"}</button>
+                        <button className="preview-button" onClick={() => { dispatch(setDetailedMode(!detailedMode)) }}>{detailedMode ? "Вернутся ко всем породам" : "Перейти к животному"}</button>
                     </div>
                     <>
                         <button className="slider__next-button" onClick={() => {

@@ -9,6 +9,7 @@ import { setTitleValue, setEdit } from "../../store/toDoList/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { setToDoListPaginator } from "../../store/toDoItem/actions";
 import { setToDoList } from "../../store/toDoItem/actions";
+import { TableRow } from "../TableRow";
 
 
 export function ToDoList() {
@@ -36,36 +37,17 @@ export function ToDoList() {
   }
 
   return (
-    <div className="table">
-      <table>
+    <table className="table">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Author</th>
-            <th>Complete</th>
-            <th>Title</th>
+            <TableRow data={["Id", "Author", "Complete", "Title"]} />
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>
-              <ToDoId toDoList={toDoListPaginator} />
-            </td>
-            <td>
-              <ToDoAuthor toDoList={toDoListPaginator} />
-            </td>
-            <td>
-              <ToDoComplete toDoList={toDoListPaginator} />
-            </td>
-            <td>
-              <ToDoTitle toDoList={toDoListPaginator} saveToDo={saveToDo} />
-            </td>
-            <td>
-              <CloseButton toDoList={toDoListPaginator} deleteToDo={deleteToDo} />
-            </td>
+            <TableRow data={[<ToDoId toDoList={toDoListPaginator} />,<ToDoAuthor toDoList={toDoListPaginator} />,  <ToDoComplete toDoList={toDoListPaginator} />, <ToDoTitle toDoList={toDoListPaginator} saveToDo={saveToDo} />, <CloseButton toDoList={toDoListPaginator} deleteToDo={deleteToDo} />]} />
           </tr>
         </tbody>
-      </table>
-    </div>
+    </table>
   );
 }

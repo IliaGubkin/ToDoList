@@ -11,7 +11,7 @@ import { ExamplePage } from "./pages/ExamplePage";
 import { Provider } from "react-redux";
 import { RootStore } from "./store/RootReducer";
 import { DesignSystem } from "./pages/DesignSystem";
-import { LogInWrapper } from "./components/LogInWrapper";
+import { LogInWrapper } from "./LogIn/LogInWrapper";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { v1 as uuidv1 } from "uuid"
-import { LogOut } from "../LogOut";
+import { LogOut } from "../../LogIn/LogOut";
 
 export function NavigationHeader() {
   class Links {
